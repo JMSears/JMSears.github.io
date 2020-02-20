@@ -1,0 +1,47 @@
+<!DOCTYPE html >
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Scoring Template</title> 
+    <!-- below is the template which will be passed on to the javascript in the body.
+    	 to enter a new element into this template you will need to use {{name}}
+         if the element contains html you will need to use the following {{{name}}}-->
+	<script id="scoContent-template" type="text/x-handlebars-template">
+	{{#if image}}
+    	<img src="{{image}}" class="fr" />
+  	{{/if}}
+	<h2>{{{title}}}</h2>
+	<div>{{{text}}}</div>
+    <div>{{{findScore scoreInfo}}}</div>
+	</script> 
+</head>
+<body tabindex='-1'>
+
+<div id="content-placeholder" class='score'>
+	<script type="text/javascript">
+        var source = $("#scoContent-template").html();
+		var percentDiv = "";
+		var percent;
+		Handlebars.registerHelper('findScore', function(scoreInfo) {
+			var scores = shell.tracking.pageScores[(scoreInfo.lessonNum-1)];
+			var total = scores.length;
+			var score = 0;
+			for (var i=0; i<total; ++i) {
+				score += scores[i];
+			}
+			percent = Math.round(score/total *100);
+			if (scoreInfo.percentId) percentDiv = scoreInfo.percentId;
+			if (percent >= scoreInfo.passingScore) {
+				return scoreInfo.passFb;
+			} else {
+				return scoreInfo.failFb;
+			}
+		})
+		var template = Handlebars.compile(source);		
+		$("#content-placeholder").append(template(pageContent));	
+		if (percentDiv != "") ada$(percentDiv).innerHTML = percent;
+    </script>
+</div>   
+
+</body>
+</html>

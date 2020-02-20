@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Career Development Facilitator Course Homepage</title>
+	<!-- Style Sheets -->
+	<link type="text/css" rel="stylesheet" media="all" href="../styles/jScrollPane.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="../styles/utility.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="../styles/shell.css" />
+    <link type="text/css" rel="stylesheet" media="all" href="../styles/content.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="../styles/ui-lightness/jquery-ui-1.8.23.custom.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="../styles/jquery-adayana.css" />
+	<!--[if IE]>
+    	<link rel="stylesheet" type="text/css" media="screen" href="../styles/ie_shell.css" />
+    	<link rel="stylesheet" type="text/css" media="screen" href="../styles/ie_content.css" />
+    <![endif]-->
+	<!--[if IE 7]>
+    	<link rel="stylesheet" type="text/css" media="screen" href="../styles/ie7_shell.css" />
+        <link rel="stylesheet" type="text/css" media="screen" href="../styles/ie7_content.css" />
+    <![endif]-->
+	<!--[if lt IE 7]>
+    	<link rel="stylesheet" type="text/css" media="all" href="../styles/ie6_shell.css" />
+        <link rel="stylesheet" type="text/css" media="all" href="../styles/ie6_content.css" />
+    <![endif]-->
+    
+	<!-- Javascript -->
+    <script type="text/javascript" src="../functionalities/cookie.js"></script>
+    <script type="text/javascript" src="../functionalities/json2.js"></script>
+    <script type="text/javascript" src="../functionalities/browserDetect.js"></script>
+    <script type="text/javascript" src="../functionalities/detect.js"></script>
+    <script type="text/javascript" src="../functionalities/utility.js"></script>
+	<script type="text/javascript" src="../functionalities/jQuery/jquery-1.8.0.min.js"></script>
+	<script type="text/javascript" src="../functionalities/jQuery/jquery-ui-1.10.2.custom.min.js"></script>
+    <!--<script type="text/javascript" src="functionalities/eventDispatcher.js"></script>
+   <script type="text/javascript" src="functionalities/pageHandler.js"></script>
+   <script type="text/javascript" src="functionalities/scoLoader.js"></script>-->
+    <script type="text/javascript" src="../functionalities/jstorage.js"></script> 
+    <script type="text/javascript" src="../functionalities/shellStorage.js"></script>
+    <script type="text/javascript" src="../functionalities/shellData.js"></script>
+    <script type="text/javascript" src="../functionalities/APIWrapper.js"></script>
+	<script type="text/javascript" src="../functionalities/SCORM.js"></script>
+    <style type='text/css'>
+		h1.courseTitle {
+		  color: #636466;
+		  font-size: 20px;
+		  font-weight: bold;
+		  height: 50px;
+		  left: 268px;
+		  position:absolute;
+		  top: 42px;
+					}
+		#homepageBG {
+			position: relative;	
+		}
+		.homepageWrap {
+			margin:0 auto;
+			position:relative;
+			width:950px;
+		}
+		p.instruct {
+			background-color:#FFF;
+			border:2px solid #006B88;
+			width: 828px;
+			left: 40px;
+			padding:20px;
+			position:absolute;
+			text-align:left;
+			top:110px;	
+		}
+		div.units {
+			background:transparent url("../images/Splash_Menu_Unit_Header.png") left top no-repeat;
+			color: #FFF;
+			position:absolute;
+			width:262px;	
+		}
+		div.units h2 {
+			color:#fff;
+			font-size:16px;
+			height:28px;
+			margin:0;
+			padding-top:8px	
+		}
+		#unit1 {
+			left:40px;
+			top:220px;	
+		}
+		#unit2 {
+			left:345px;
+			top:220px;	
+		}
+		#unit3 {
+			left:650px;
+			top:220px;	
+		}
+		#unit4 {
+			left:195px;
+			top:520px;	
+		}
+		#unit5 {
+			left:495px;
+			top:520px;	
+		}
+		ul.lessons {
+			list-style-type:none;
+			margin:0;	
+		}
+		.lessons li {
+			margin:0;
+			padding:0;	
+		}
+		.lessons a {
+			background:transparent url("../images/Menu_Expand_Btn.png") left top no-repeat;
+			color:#000;
+			display:block;
+			font-size:14px;
+			margin:0 0 0 4px;
+			padding:4px 10px 2px 40px;
+			text-align:left;
+			width:205px;
+			height:40px;	
+		}
+		.lessons a.single {
+			padding-top:12px;
+			height:32px;
+		}
+		.lessons a:hover,
+		.lessons a:focus {
+			background-position:-260px 0;
+			text-decoration: underline;
+		}
+		.lessons a.visited {
+			background-position:-520px 0;
+		}
+		.lessons a.visited:hover,
+		.lessons a.visited:focus {
+			background-position:-1040px 0;
+		}
+		.lessons a.disabled,
+		.lessons a.disabled:hover,
+		.lessons a.disabled:focus {
+			background-position:-780px 0;
+			color:#fff;
+			cursor:default;
+		}
+	</style>
+    <script type="text/javascript">
+		$(document).on('unload', pipwerks.SCORM.quit);
+		var lesson11Complete = false;
+		function goToLesson(page) {
+			console.log("goToLesson " + page);
+			console.log(lesson11Complete);
+			if (lesson11Complete || page == '01_01_000') {
+				window.location = "index.html?pageId="+page;
+			} else {
+				alert('You must complete Unit 1, Lesson 1 before accessing any of the other lessons.');	
+			}
+			return false;
+		}
+		function setPageID(nodeId) {
+			if (PPS) {
+				window.parent.page = nodeId;
+			}
+		}
+		setPageID("homepage");
+		var myTimeout;
+		function restoreData() {
+			if (pipwerks.SCORM.API.isFound) {
+				clearTimeout(myTimeout);
+				var savedData = getSaveData();
+				if (savedData != null) {
+					var data = JSON.parse(savedData);
+					setLessonStatus(data);
+				}
+			} else {
+				console.log("API FOUND? " + pipwerks.SCORM.API.isFound);
+				myTimeout = setTimeout(restoreData,300);
+			}
+		}
+		function setLessonStatus(data) {
+			lesson11Complete = false;
+			//for each unit
+			//console.log(data);
+			for (var i=0; i<5; i++) {
+				//console.log("homepage.html line 185");
+				var currUnit = data.pageCompletion[3][i];
+				//console.log("homepage.html line 187");
+				//for each lesson
+				for (var j=0, k=currUnit[3].length; j<k; j++) {
+					var currLesson = currUnit[3][j];
+					if (currLesson[0] == 1) {
+						if (i == 0 && j == 0) {
+							lesson11Complete = true;
+						}
+						if (lesson11Complete) {
+							$('#lesson'+(i+1)+(j+1)).addClass('visited');
+							$('#ilesson'+i+(j+1)).addClass('ion');
+							$('#ilesson'+i+(j+1)).removeClass('ioff');
+							if ($('#lesson'+(i+1)+(j+1)).hasClass('disabled')) $('#lesson'+(i+1)+(j+1)).removeClass('disabled');
+						} else {
+							break;
+						}
+					} 
+					if (lesson11Complete) {
+						$('#lesson'+(i+1)+(j+1)).removeClass('disabled');
+					}
+				}
+				if (!lesson11Complete) {
+					break;	
+				}
+			}
+		}
+		function connectToLMS() {
+			pipwerks.SCORM.init();
+			if (!pipwerks.SCORM.API.isFound) {
+				// Set the SCORM variable name depending on the SCORM version
+				if (pipwerks.SCORM.version == "2004") {
+					completionVar = 'cmi.completion_status';
+				} else {
+					completionVar = 'cmi.core.lesson_status';
+					cmiPrefix = "cmi.core"; 
+				}
+				pipwerks.SCORM.save();
+			} else {
+				apiConnected = true;
+			}
+			restoreData();
+		}
+		var apiConnected = false;
+		$(document).ready( function() {
+			if ( PPS ) {
+				STANDALONE = true;
+			} else {
+				STANDALONE = Detect.isStandalone;
+			}
+			lmsConnected = !STANDALONE;
+			if (STANDALONE) ShellStorage.init();
+			if (lmsConnected) {
+				connectToLMS();
+			} else {
+				var savedData = getSaveData();
+				var data = JSON.parse(savedData);
+				console.log("I'm not pulling LMS data");
+				setLessonStatus(data);
+			}
+		});
+		function toGoSite(site) {
+			window.location = "index.html?pageId=01_01_000";
+		}
+	</script>
+</head>				
+<body>	
+<div class='tac'>	
+    <div class='homepageWrap'>
+        <img id='homepageBG' src='../images/Splash_Menu_BG_3.jpg' alt='office scene' />
+        <h1 class='courseTitle'>Career Development Facilitator</h1>
+		<div class='instruct'>
+			<p class='actionText'>
+				Welcome to the Career Development Facilitator course! Start by selecting Unit 1, Lesson 1: Introduction. Once you have completed that lesson, you may complete lessons in any order. You must complete all lessons to receive a course certificate.
+			</p>
+			<div class='toggleIntro'>
+				<p class='actionText'>
+					As you go through this course, slide audio will play automatically when you navigate to a new slide. Select the "Wait to Play Audio" button if you prefer slide audio to pause until you select the Play button on the navigation bar.
+				</p>
+				<button type="button" id="delayOff" onclick='delayCourse("off");' class="togSel">
+					Automatically Play Audio 
+					<span class="sect508">Selected</span>
+				</button>	
+				<button type="button" id="delayOn" onclick='delayCourse("on");' class="togUn">
+					Wait to Play Audio 
+					<span class="sect508">Unselected</span>
+				</button>					
+			</div>
+		</div>
+        <div id='unit1' class='units'>
+        	<h2>Unit 1</h2>
+        	<ul class='lessons'>
+            	<li><a id='lesson11' href="#lesson11" onclick="goToLesson('01_01_000'); return false;" class='single'>Lesson 1: Introduction <img id='ilesson11' class='ioff isingle' src='../images/Course-Check.png' alt='Completed'/> </a></li>
+            </ul>
+        </div>
+    	<div id='unit2' class='units'>
+        	<h2>Unit 2</h2>
+        	<ul class='lessons'>
+            	<li><a id='lesson21' href="#lesson21" onclick="goToLesson('02_01_000'); return false;" class='disabled'><img id='ilesson21' class='ioff' src='../images/Course-Check.png' alt='Completed'/> Lesson 1: Career Development Theory </a></li>
+                <li><a id='lesson22' href="#lesson22" onclick="goToLesson('02_02_000'); return false;" class='disabled'><img id='ilesson22' class='ioff' src='../images/Course-Check.png' alt='Completed'/> Lesson 2: Career Development Practice</a></li>
+                <li><a id='lesson23' href="#lesson23" onclick="goToLesson('02_03_000'); return false;" class='single disabled'><img id='ilesson23' class='ioff isingle' src='../images/Course-Check.png' alt='Completed'/> Lesson 3: Diverse Populations</a></li>
+            </ul>
+        </div>
+        <div id='unit3' class='units'>
+        	<h2>Unit 3</h2>
+        	<ul class='lessons'>
+            	<li><a id='lesson31' href="#lesson31" onclick="goToLesson('03_01_000'); return false;" class='disabled'><img id='ilesson31' class='ioff' src='../images/Course-Check.png' alt='Completed'/> Lesson 1: Helping Skills - Attending</a></li>
+                <li><a id='lesson32' href="#lesson32" onclick="goToLesson('03_02_000'); return false;" class='disabled'><img id='ilesson32' class='ioff' src='../images/Course-Check.png' alt='Completed'/> Lesson 2: Building Trust and Rapport</a></li>
+                <li><a id='lesson33' href="#lesson33" onclick="goToLesson('03_03_000'); return false;" class='disabled'><img id='ilesson33' class='ioff' src='../images/Course-Check.png' alt='Completed'/> Lesson 3: Holding Helping Conversations</a></li>
+                <li><a id='lesson34' href="#lesson34" onclick="goToLesson('03_04_000'); return false;" class='single disabled'><img id='ilesson34' class='ioff isingle' src='../images/Course-Check.png' alt='Completed'/> Lesson 4: Referral Acumen</a></li>
+                <li><a id='lesson35' href="#lesson35" onclick="goToLesson('03_05_000'); return false;" class='disabled'><img id='ilesson35' class='ioff' src='../images/Course-Check.png' alt='Completed'/> Lesson 5: Building Coalitions and Raising Awareness</a></li>
+            </ul>
+        </div>
+        <div id='unit4' class='units'>
+        	<h2>Unit 4</h2>
+        	<ul class='lessons'>
+            	<li><a id='lesson41' href="#lesson41" onclick="goToLesson('04_01_000'); return false;" class='disabled'><img id='ilesson41' class='ioff' src='../images/Course-Check.png' alt='Completed'/> Lesson 1: Career Development Ethics</a></li>
+            </ul>
+        </div>
+    	<div id='unit5' class='units'>
+        	<h2>Unit 5</h2>
+        	<ul class='lessons'>
+            	<li><a id='lesson51' href="#lesson51" onclick="goToLesson('05_01_000'); return false;" class='single disabled'><img id='ilesson51' class='ioff isingle' src='../images/Course-Check.png' alt='Completed'/> Lesson 1: Conclusion</a></li>
+            </ul>
+        </div>
+    </div>	
+</div>
+</body>
+</html>

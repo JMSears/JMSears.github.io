@@ -1,0 +1,834 @@
+/*  
+ * Style Sheet Course Shell.
+ * @author: Valerie Burzynski
+ * 
+ * Change Log:
+ * 		2010.12.10 VRB - Started FDIC Shell
+ *      2010.12.17 VRB - Modified for new HTML/AJAX/XML Shell
+ *		2013.02.01 ALP - Modified for VA Career Mapping Shell
+ * 		
+ */
+
+/* Global Tags ************************************************************************************/
+body {
+    background-color: #E3E3E3;
+	color: #030000;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16pt;
+    overflow: auto;
+	}
+
+a, 
+a:hover {
+    text-decoration: none;
+	}
+a:visited {
+	color: #00F;
+}
+img {
+    border: 0;
+	}
+*:focus,
+#breadcrumbText:focus,
+#pageNav:focus {
+	outline:none;	
+}
+a:focus,
+area:focus,
+input:focus {
+	/*outline: #0083A9 dotted 1px; 	*/
+}
+button {
+	padding:0;	
+}
+button:focus{
+	outline:1px dotted #000 !important;
+}
+/* Shell ******************************************************************************************/
+#outerWrap {
+    background: #FFF url(../images/leftShadow.jpg) left top repeat-y;
+	border-top:none;
+    height: 100%;
+    left: 50%;
+	padding-left:20px;
+    position: absolute;
+    top: 0;
+	}
+#innerWrap {
+    background: #FFF url(../images/rightShadow.jpg) right top repeat-y;
+	padding-right:20px;
+	}
+#mainFrame{
+	position:relative;
+	width: 100%;
+	/*overflow:auto;*/
+}
+
+/* Header *****************************************************************************************/
+#exitLink {
+    background: transparent url('../images/btnExit.png') top left no-repeat;
+    color:#FF0000;
+	height: 25px;
+	margin:30px 0 0 0;
+    width: 25px;
+	float: right;
+	}
+#exitLink:focus{
+	outline:1px dotted #000 !important;
+}	
+#exitLink span {
+	position: relative;
+    top: 0px;
+    left: 0px;
+}	
+
+#exitLink:hover,
+#exitLink:focus  {
+    background-position: -25px 0;
+	}
+#headerWrap {
+    background: #FFF  url(../images/header.jpg) top right no-repeat;
+	height: 124px;
+    width:950px;
+	}
+#logo{
+	padding-left: 26px;
+}
+#headerLeftWrap {
+    height: 94px;
+    width: 266px;
+	float:left;
+	margin: 0px 0px 0 0;
+}
+#headerRightWrap {
+    height: 20px;
+    width: 50px;
+	float:right;
+	margin: 10px 10px 0 0;
+}
+
+#courseTitle {
+	color: #636466;
+	font-size: 20px;
+	font-weight:bold;
+	height:50px;
+	padding-left:268px;
+	padding-top:42px;
+	vertical-align: 20px;
+	}
+
+#seriesTitle {
+    position: absolute;
+    visibility: hidden;
+	}
+#breadcrumbText h1 {
+	color:#636466;
+	display:block;
+	font-size:14px;
+	font-weight:normal;
+	padding: 8px 5px 5px 19px;
+}
+/* Content ****************************************************************************************/
+#contentWrap {
+	background: #FFFFFF url('../images/contentAreaBG.jpg') 12px bottom no-repeat;
+    height: 494px;
+	margin:0;
+	padding:0;
+	overflow:hidden;
+	}
+#content {
+    /*background: transparent url('../images/shell_R.jpg') top right repeat-y;*/
+    height: 100%;
+	/*padding-left: 10px;*/
+	}
+
+#pageContent {
+    background: none repeat scroll 0 0 #000;
+    border-collapse: collapse;
+    border-width: 0;
+    height: 100%;
+/*    left: 10px;*/
+    margin: 0;
+/*    overflow: auto;*/
+    padding: 0;
+	 position: relative;
+    top: 0;
+    width: auto;
+	}
+/* Closed Captioning ******************************************************************************/
+#cc {
+	position: relative;
+	width: 980px;
+	left: 10px;
+	background-color: blue;
+	}
+#ccTab {
+	height: 25px;
+	}
+#ccTabLeft {}
+#ccTabRight {}
+#ccTabBtn {}
+#ccBody {
+	height: 110px;
+	}
+#ccBodyLeft {}
+#ccBodyRight {}
+#ccContent {}
+#ccScroll {}
+#ccText p {
+	margin-bottom: 12px;
+	}
+#ccDialog.ui-dialog-content {
+	background: transparent url('../images/white90.png') left top repeat;	
+	color:#000;
+}
+
+/* Footer *****************************************************************************************/
+#footerOuterWrap {
+	background: #FFF url('../images/footer.jpg') left top no-repeat;
+	height: 62px;
+	position:relative;
+	width: 990px;
+	margin-left:-20px;
+	}
+#footer button:focus {
+	outline:none;	
+}
+/*ul#courseNav, ul#captionNav, ul#pageNav, ul#avControls, ul#printCCVol{
+    list-style-position: inside;
+    list-style-type: none;
+    padding-top: 0;
+	}
+
+ul#courseNav li, ul#captionNav li, ul#pageNav li, ul#avControls li, ul#printCCVol li{
+    display: inline;
+    margin: 0;
+    padding: 0;
+    vertical-align: top;
+	}
+
+ul#courseNav a, ul#captionNav a, div#pageNav, #avControls a, ul#printCCVol a {
+    color: #F00;
+    display: block;
+    float: left;
+    height: 25px;
+    margin: 0;
+    text-decoration: none;
+	}*/
+div#courseNav button span, div#captionNav span, div#pageNav span, div#avControls span, div#printCCVol span {
+	position: relative;
+    top: 0px;
+    left: 0px;
+}	
+@media screen and (-ms-high-contrast: active) {
+  /* All high contrast styling rules */
+  div#courseNav button span, div#captionNav span, div#pageNav span, div#avControls span, div#printCCVol span {
+	position: relative;
+    width:auto;
+	height:auto;
+	top:0px;
+	left:0px;
+}
+.menuitem {
+position: relative;
+}
+}
+
+/* Course Buttons *********************************************************************************/
+ul#courseNav a {
+    height: 29px;
+	}
+#courseNav {
+	float:right;
+	margin:2px 102px 0 0;
+	}
+#menuLink {
+    height: 29px;
+    width: 100px;
+	}
+
+#menuLink:hover,
+#menuLink:focus {
+    background-position: -122px 0;
+	}
+.on #menuLink{
+    background-position: -122px 0;
+	}
+#menu ul a {
+	height:auto;	
+}
+#resourcesLink {
+    height: 29px;
+    width: 102px;
+	}
+
+#resourcesLink:hover,
+#resourcesLink:focus {
+    background-position: -124px 0;
+	}
+
+/* Page Navigation ********************************************************************************/
+div#pageNav {
+	float:right;
+	margin:5px 35px 0 0;
+    width: 90px;
+	}
+div#pageNav button {
+	float:right;	
+}
+#navBack {
+    height: 25px;
+    width: 42px;
+	}
+
+#navNext {
+    height: 25px;
+	margin-right:5px;
+    width: 42px;
+	}
+	
+#navNext:hover, #navBack:hover,
+#navNext:focus, #navBack:focus {
+    background-position: -52px 0;
+	}
+	
+#navNext.dim, #navNext.dim:hover, #navBack.dim, #navBack.dim:hover {
+    background-position: -104px 0;
+	}
+.dim:hover, .dim:focus {
+	outline:1px dotted #000 !important;
+
+}
+
+/* Progress Bar */
+#lessonProgress {
+	color:#030000;
+	font-size:9px;
+	position:absolute;
+	top:5px;
+	left:765px;
+	width:60px;	
+}
+
+#outerProgressWrap {
+	float:right;
+	height:50px;
+	margin:19px 0 0 0;
+	padding:0;
+	width:123px;
+	}	
+#innerProgressWrap {
+	background:url('../images/pb_full.png') top right no-repeat;
+	height:50px;
+	margin:0;
+	margin-left:-3px;
+	}
+#progress {
+	background:url('../images/pb_left.png') left top no-repeat;
+	height:11px;
+	width:123px;
+	}
+#captionNav {
+    left: 406px;
+    position: absolute;
+    top: 10px;
+	}
+
+#captionLink {
+    background: transparent url('../images/btn_caption.jpg') top left no-repeat;
+    height: 30px;
+    width: 88px;
+	}
+#captionLink:hover {
+    background-position: -88px 0;
+	}
+/* Audio and Video controls ***********************************************************************/
+.jp-jplayer {
+	float:left;	
+}
+.jp-volume-bar {
+	position:absolute;
+	background: url("../images/volSliderBG.png") center 0 no-repeat transparent;
+    height: 64px;
+	overflow: hidden;
+	width: 20px;
+	top:-55px;
+	left:609px;
+	z-index:2001;
+}
+.jp-volume-bar.offScreen {	
+	display: block;
+    height: 1px;
+    left: -1000px;
+    overflow: auto;
+    position: absolute;
+    top: -1000px;
+    width: 1px;
+}
+.jp-volume-bar-value {
+	background: url("../images/volSlider.png") center top no-repeat transparent;
+	position:absolute;
+	bottom: 0;
+	width: 20px;
+}
+
+#audio_container {
+	float:right;
+	margin:5px 17px 0 0;	
+	width:139px;
+}
+#avControls{
+	margin:0;
+	padding:0;
+	width: auto;	
+}
+div#avControls button {
+	float:right;	
+	margin-right: 3px;
+}
+#rewind {
+	height: 25px;
+	width: 58px;
+}
+#rewind:hover,
+#rewind:focus {
+	background-position: -24px 0;
+}
+#rewind.dim, #rewind.dim:hover{
+	background-position: -48px 0;
+}
+#playPause.play {
+	height: 25px;
+	width: 75px;
+}
+#playPause.pause {
+	height: 25px;
+	width: 75px;
+}
+#playPause.play:hover, #playPause.pause:hover,
+#playPause.play:focus, #playPause.pause:focus{
+	background-position: -24px 0;
+}
+#playPause.play.dim, #playPause.play.dim:hover,
+#playPause.pause.dim, #playPause.pause.dim:hover{
+	background-position: -48px 0;
+}
+
+/* Print, CC, and Volume **************************************************************************/
+#printCCVol {
+	float:right;
+	margin:6px 10px 0 0;	
+	width:240px;
+}
+div#printCCVol button {
+	float:right;	
+	margin-right: 7px;
+}
+#printLink{
+	height: 25px;
+	width:45px;
+}
+#printLink:hover,
+#printLink:focus {
+	background-position: -20px 1px;
+}
+#printLink.dim, 
+#printLink.dim:hover,
+#printLink.dim:focus {
+	background-position: -42px 0;
+}
+
+#ccLink{
+	height: 25px;
+	width:120px;
+}
+#ccLink:hover,
+#ccLink:focus {
+	background-position: -24px 0;
+}
+#ccLink.dim, 
+#ccLink.dim:hover,
+#ccLink.dim:focus {
+	background-position: -48px 0;
+}
+
+#volLink{
+	height: 25px;
+	width:52px;
+}
+#volLink:hover,
+#volLink:focus {
+	background-position: -22px 0;
+}
+#volLink.dim,
+#volLink.dim:hover {
+	background-position: -44px 0;
+}
+#volLink.muted{
+	background-position: -66px 0;
+}
+#volLink.muted:hover,
+#volLink.muted:focus {
+	background-position: -88px 0;
+}
+#volLink.muted.dim,
+#volLink.muted.dim:hover {
+	background-position: -110px 0;
+}
+/* Menu *******************************************************************************************/
+#clickableCover {
+	position:absolute;
+	width:100%;
+	height:100%;
+	z-index:2000;	
+}
+
+div#courseNav button {
+	float:right;	
+}
+#outerMenuWrap, #outerResWrap {
+    border: 0 none;
+	bottom: 75px;
+	left: 32px;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    width: 252px;
+    z-index: 2001;
+	}
+
+#innerMenuWrap, #innerResWrap {
+    width: 100%;
+	margin-bottom:-15px;
+	}
+
+#menuContent, #resContent {
+  background: url("../images/bkgMenu.png") repeat-y scroll left top transparent;
+  height: 100%;
+  margin-top: 0;
+  padding: 20px 4px 0;
+}
+
+#menuFooter {
+	background: transparent url(../images/footerMenu.png) top left no-repeat;
+    height: 13px;
+    width: 252px;
+	}	
+#resFooter {
+	background: transparent url(../images/footerResMenu.png) top left no-repeat;
+    height: 13px;
+    width: 252px;
+	}	
+#outerMenuHeaderWrap, #outerResHeaderWrap {
+	height: 10px;
+	width: 100%;
+	
+}
+#innerMenuHeaderWrap, #innerResHeaderWrap {
+	height: 10px;
+	width: 100%;
+}
+#menuHeader, #resHeader {
+	background: transparent url(../images/headingMenu.png) top left no-repeat;
+	height: 10px;
+	width: 252px;
+}
+#menuTitle {
+  color: #00334d;
+  font-weight: bold;
+  left: 10px;
+  margin-bottom: 0;
+  position: relative;
+  top: 10px;
+}
+#menuTitle a {
+	color: #00334d;
+}
+#menuTitle a:hover,
+#menuTitle a:focus {
+	text-decoration:underline;
+}
+#resTitle {
+	font-weight:bold;
+	color:#000;	
+	left: 10px;
+	position: relative;
+	top:10px;
+}
+#menuClose, #resClose {
+	display:block;
+	height: 25px;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    width: 25px;
+}
+#menuClose span, #resClose span {
+	position:relative;
+	left:-10px;
+	top:0px;	
+}
+				
+/* Menu *******************************************************************************************/
+#menuScrollWrap, #resScrollWrap {
+    font-size: 14px;
+	overflow: auto;
+	margin:0 3px;
+	max-height:440px;
+	padding-right:20px;
+	}
+
+#menu {
+    overflow: hide;
+	}
+#menuClose, #resClose {
+	background-image: url("../images/btnExit.png");
+}
+#menuClose:hover, #menuClose:focus,
+#resClose:hover, #resClose:focus {
+	background-position:-25px 0;
+}
+#menuList, #resList {
+    padding: 0 0 0 5px;
+	}
+
+#menu h3, #res h3, 
+#menu h4, 
+#menu h5, 
+#menu h6 {
+    cursor: pointer;
+	font-size:14px;
+    padding: 3px 17px;
+    text-align: left;
+	}
+#menu a.current h5,
+#menu a.current h6 {
+	font-weight:bold;
+}
+#menu h5 {
+    color: #00334D;
+	cursor: pointer;
+    padding: 3px 7px;
+    text-align: left;
+	}
+#menu h6 {
+	color: #000;
+}
+#menu h3, #res h3 {
+	color: #00334D;
+    font-weight: bold;
+	margin-bottom:0;
+	}
+
+#menu h3 span {
+    float: right;
+	}
+
+#menu h4, 
+#menu h5, 
+#menu h6 {
+    font-weight: normal;
+	margin-top:0;
+	margin-bottom:0;
+	}
+#menu a, #res a {
+    color: #636466;
+    display: block;
+    float: left;
+	}
+#menu a:hover,
+#menu a:focus {
+	text-decoration:underline;	
+}
+#menu ul a, #res ul a {
+    float: none;
+	}
+
+#menu span {
+    float: left;
+	}
+
+#menu li span {
+    height: 100%;
+	}
+
+#menu ul, #res ul {
+    list-style-type: none;
+	margin:0;
+	margin-left:10px;
+	}
+
+#menu .noExpand {
+    display: none;
+	}
+
+#menu li {
+    float: left;
+    width: 100%;
+	margin:0;
+	}
+
+#menu li span a {
+    margin-left: 0;
+	}
+#menu li li, #menu li li li {
+	margin-left:7px;
+}
+#menu li li li {
+	margin-left:0px;
+}
+#menu a.current h4, 
+#menu a.current:hover h4,
+#menu a.current:focus h4
+#menu a.current h6, 
+#menu a.current:hover h6,
+#menu a.current:focus h6 {
+    color: #0083A9;
+	font-weight:bold;
+	}
+#menu a.disabled,
+#menu a.disabled:hover {
+	color:#D1D2D4;	
+}
+#menu a:hover h4 {
+    /*color: #C80000;*/
+	}
+
+#menu a:hover {
+    background: transparent url('../images/shell_menu_hover.jpg') top left repeat;
+	}
+#menu a.closed, #menu a.open {
+	padding-top:3px;
+}
+.lineSpacer {
+    background: transparent url('../images/shell_menu_line.jpg') top left repeat-x;
+    height: 1px;
+	}
+#res ul {
+	margin-left:0;
+}
+#res li {
+	background:transparent url(../images/menu_plus.png) left 8px no-repeat;
+	margin-bottom:5px;
+	padding-left:10px;	
+}
+#res a h3 {
+	color: #030000;	
+}
+#res a:hover,
+#res a:focus {
+	text-decoration:underline;	
+}
+#res li h3 {
+	padding-left:5px;	
+}
+	
+#caption {
+    border-top: 1px solid;
+    font-size: 14px;
+    height: 135px;
+    left: 20px;
+    margin: 0;
+    overflow: auto;
+    padding: 0;
+    position: relative;
+    width: 960px;
+	}
+
+#captionWrap {
+    overflow: hide;
+	left: 13px;
+    position: relative;
+    width: 932px;
+	}
+
+#captionText {
+    padding: 15px 0 0 0;
+	}
+/**********************************
+/* VA-specific styles
+/***********************************/
+
+a.skipToNav {
+	position:absolute;
+	left:-1000px;
+}
+#outerWrap #innerWrap a.skipToNav:focus {
+	background-color:#FF0;/*#CCEAEF;*/
+	border:1px solid #000;
+	color:#000;
+	display:block;
+	left:40px;
+	padding:10px;
+	text-align:center;
+	top:20px;
+	width:100px;
+	z-index:1000;		
+}
+
+.preload-display {
+    position:absolute;
+    height:100%;
+    width:100%;
+    background-color:#000000;
+    color:#FFFFFF;
+    top:0;
+    left:0;
+    z-index:999999;
+}
+.preload-progress-bar {
+    background-color: #FFFFFF;
+    height: 2px;
+    left: 0;
+    margin-top: -1px;
+    position: absolute;
+    top: 50%;
+    width: 0;
+}
+.preload-progress-text {
+    font-size: 20px;
+    height: 40px;
+    left: 0;
+    margin-top: -40px;
+    position: absolute;
+    text-align: center;
+    text-overflow: ellipsis;
+    top: 50%;
+    width: 100%;
+}
+.section508 {
+	background-color:#FF0;/*#CCEAEF;*/
+	border:1px solid #000;
+	color:#000;
+	display:block;
+	padding:10px;
+	text-align:center;
+}
+#contentSwapInner .section508 {
+	left:332px;
+	top:auto;
+	padding:10px;
+	width:100px;	
+}
+#ccDialog .section508 {
+	left:332px;
+	top:auto;
+	bottom:10px;
+	padding:10px;
+	text-decoration:underline;
+	width:150px;		
+}
+#ccDialog .section508.off {
+	display:none;
+}
+.sect508 {
+	display:block;
+	position:absolute;
+	height:1px;
+	width:1px;
+	padding:1px;
+	margin:1px;
+	text-indent:5px;
+	overflow:hidden;
+	white-space: nowrap;
+}

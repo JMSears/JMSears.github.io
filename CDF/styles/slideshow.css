@@ -1,0 +1,80 @@
+#slideshow {
+	position: relative;
+	height: auto;
+	width: 100%;
+}
+
+#slidecontainer {
+	margin: 0 auto;
+	width: 100%;
+	height: auto;
+	overflow: hidden;
+	top: 0;
+}
+#slidecontainer #slidewrapper {
+	height:100%;
+}
+#slidecontainer #slidewrapper .slide {
+	float: left;
+	position: relative;
+	width: 862px;
+	height: 100%;
+	overflow: auto;
+	border: 1px;
+}
+
+
+#slidecontroller {
+	height: 30px;
+	width: 100%;
+	margin: 0 auto;
+	background: transparent url('../images/slideshow_bar.jpg') top left repeat-x;
+	position: relative;
+}
+#slidecontroller #wrapleft {
+	height: 100%;
+	width: 100%;
+	background: transparent url('../images/slideshow_bar_left.jpg') top left no-repeat;
+}
+#slidecontroller #wrapright {
+	height: 100%;
+	width: 100%;
+	background: transparent url('../images/slideshow_bar_right.jpg') top right no-repeat;
+}
+#slidecontroller #slidetext {
+	color: #600;
+	font-size: 13px;
+	font-weight: bold;
+	margin: 0 auto;
+	position: relative;
+	text-align: center;
+	top: 7px;
+	width: 750px;
+}
+#slidecontroller #nextSlide {
+	position: absolute;
+	right: 8px;
+	top: 3px;
+}
+#slidecontroller #prevSlide {
+	position: absolute;
+	left: 8px;
+	top: 3px;
+}
+#slidecontroller a {
+	display: block;
+	height: 23px;
+	width: 23px;
+}
+#slidecontroller #prevSlide a {
+	background: transparent url('../images/slideshow_prev_normal.jpg') top left no-repeat;
+}
+#slidecontroller #prevSlide a:hover{
+	background: transparent url('../images/slideshow_prev_over.jpg') top left no-repeat;
+}
+#slidecontroller #nextSlide a {
+	background: transparent url('../images/slideshow_next_normal.jpg') top left no-repeat;
+}
+#slidecontroller #nextSlide a:hover {
+	background: transparent url('../images/slideshow_next_over.jpg') top left no-repeat;
+}

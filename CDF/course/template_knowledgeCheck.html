@@ -1,0 +1,58 @@
+<!DOCTYPE html >
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Knowledge Check Template</title>
+   	<script type="text/javascript" src="../functionalities/utility.js"></script>
+    <script type="text/javascript">
+		var myFormQuiz;
+		var formQuizData;
+		function formQuizComplete(isCorrect,currForm) {
+			if (isCorrect == true || isCorrect == "end") {
+				enableNav('next');
+				setPageVisit(true);
+				if (isCorrect == true) {
+					setPageScore(1);
+				}
+			} 
+		}	
+    	$(document).ready(function() {
+			// If this page has not been completed yet			
+			if (shell.tracking.firstVisit) {
+				disableNav('next');
+				setPageVisit(false);
+			}
+		});
+    </script>
+    <script id="scoContent-template" type="text/x-handlebars-template">
+		<!--Add an optional image floated right here-->
+		{{#if title}}<h2 class='actionText{{#if titleClass}} {{titleClass}}{{/if}}'>{{{title}}}</h2>{{/if}}
+		{{#if image}}
+			<img src="{{image}}" class="fr" {{#if imageStyle}}style="{{imageStyle}}"{{/if}} alt="{{altText}}" />
+		{{/if}}
+		{{#if text}}
+			{{{text}}}
+		{{/if}}
+		<div id="quiz0" {{#if customClass}}class="{{customClass}}"{{/if}}></div> <!--FormQuiz -->
+		<div id="feedbackWrapper0" class="off"></div> <!--end feedback-->
+	</script> 
+</head>
+    
+	
+
+<body tabindex='-1'>
+
+<div id="content-placeholder" class="kc">	
+	<script type="text/javascript">
+        var source = $("#scoContent-template").html();
+		var template = Handlebars.compile(source);
+		$("#content-placeholder").append(template(pageContent));	
+		formQuizData = pageContent.knowledgeCheck;
+		myFQinstanceArray = new Array();
+		myFormQuiz = new FormQuiz();
+    </script>
+    
+</div>   
+
+</body>
+</html>

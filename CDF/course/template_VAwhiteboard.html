@@ -1,0 +1,36 @@
+<!DOCTYPE html >
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Whiteboard Template for the VA Career Mapping Project</title>
+    <!-- below is the template which will be passed on to the javascript in the body.
+    	 to enter a new element into this template you will need to use {{name}}
+         if the element contains html you will need to use the following {{{name}}}-->  
+    <script id="scoContent-template" type="text/x-handlebars-template">
+	<div class='whtbrdBG pose{{pose}}'>
+		<div id='whiteboard'>{{{customHTML}}}</div>
+		{{#if subClosedCaption }}
+			{{ setSubAudioCCArray subClosedCaption }}
+		{{/if}}
+	</div>
+	</script> 
+</head>
+<body tabindex='-1'>
+    <div id="content-placeholder" class="whtbrd">
+        <script type="text/javascript">
+            var source = $("#scoContent-template").html();
+            var template = Handlebars.compile(source);
+			Handlebars.registerHelper("setSubAudioCCArray", function (ccData) {
+				for (var i=0, j=ccData.length; i<j; i++) {
+					var currSubPage = ccData[i];
+					storeSubCCData(currSubPage.id, currSubPage.audio, currSubPage.closedCaption);
+					disableNav('next');
+				}
+			});
+            $("#content-placeholder").append(template(pageContent));	
+			//addTimedContentDesc();
+        </script>
+    </div>   
+	
+</body>
+</html>

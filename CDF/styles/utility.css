@@ -1,0 +1,78 @@
+html,
+body,
+p,
+h1,
+h2,
+h3,
+h4,
+ul,
+li {
+	margin:0;
+	padding:0;
+	}
+/*p {
+	margin-bottom:0.71em;
+	}
+*/
+*, iframe {        
+    /*outline-style: none;
+    outline-width: 0px;  */
+}
+* {
+	outline-color: -moz-use-text-color;
+	/*-moz-outline-style: none;*/
+}
+a:active {
+	/*outline:none;*/
+	}
+
+img {
+	border:0;
+	}
+.fl {
+	float:left;
+	margin-right:12px;
+	}
+.fr {
+	float:right;
+	margin-left:12px;
+	}
+.tac {
+	text-align:center;
+	}
+.tal {
+	text-align:left;
+	}
+.tar {
+	text-align:right;
+	}
+.vab {
+	vertical-align:bottom;
+	}
+.clear {
+	clear:both;
+	}
+.cl {
+	clear:left;
+	}
+.off, 
+#content .off {
+	display:none;
+	}
+.on, 
+#content .on {
+	display:block;
+	}
+.offScreen {
+	display:block;
+	height:1px;
+	left:-99999px;
+	overflow:auto;
+	position:absolute;
+	top:-99999px;
+	width:1px;
+	}
+.tm {
+	margin-top:12px;
+}
+	

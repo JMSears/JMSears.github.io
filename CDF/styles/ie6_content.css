@@ -1,0 +1,24 @@
+/* Fix Submit Button */
+.formSubmit {
+	width: 1px;
+	}
+
+.formSubmit,
+.formSubmit:hover,
+.formSubmit:active, {
+	background: transparent url('../images/submit_normal_middle.jpg') top left repeat-x;
+	}
+a.buttonText,
+a.buttonText:hover,
+a.buttonText:active {
+	background: transparent url('../images/submit_normal_right.jpg') top right no-repeat;
+	}
+a.buttonText span:hover,
+a.buttonText span:active,
+a.buttonText span {
+	background: transparent url('../images/submit_normal_left.jpg') top left no-repeat;
+	}
+	
+.imageClicker {
+	width:915px;
+	}

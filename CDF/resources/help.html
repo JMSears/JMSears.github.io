@@ -1,0 +1,102 @@
+<!DOCTYPE html 
+	PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="us-en" lang="us-en">
+<head>
+    <meta charset="utf-8">
+    <title>Course Help Tutorial</title>
+    <!--Stylesheets (CSS3)-->
+	<!--<link rel="stylesheet" type="text/css" media="all" href="../styles/helpGlossaryResources.css" />-->
+    <link rel="stylesheet" type="text/css" media="screen" href="../styles/utility.css" />
+    <link type="text/css" rel="stylesheet" media="all" href="../styles/ui-lightness/jquery-ui-1.8.23.custom.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="../styles/jquery-adayana.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="../styles/shell.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="../styles/content.css" />
+    <link type="text/css" rel="stylesheet" media="all" href="../styles/resources.css" />
+    </script>
+    <!--[if IE]>
+        <link rel="stylesheet" type="text/css" media="screen" href="../styles/ie.css" />
+    <![endif]-->
+    <!--[if IE 8]>
+        <link rel="stylesheet" type="text/css" media="screen" href="../styles/ie8.css" />
+    <![endif]-->
+    <!--[if IE 7]>
+        <link rel="stylesheet" type="text/css" media="screen" href="../styles/ie7.css" />
+    <![endif]-->
+    <script type="text/javascript" src="../functionalities/utility.js"></script>
+    <script type="text/javascript" src="../functionalities/shellData.js"></script>
+    <script type="text/javascript" src="../functionalities/jQuery/jquery-1.8.0.min.js"></script>
+	<script type="text/javascript" src="../functionalities/jQuery/jquery-ui-1.10.2.custom.min.js"></script>
+    <!--<script type="text/javascript" src="../functionalities/resources.js"></script>-->
+    <script type="text/javascript" src="../functionalities/popUp.js"></script>
+    <script type="text/javascript" src="../functionalities/jQuery/jquery.mousewheel.js"></script>
+    <script type="text/javascript" src="../functionalities/jQuery/jquery.hotkeys.js"></script>
+	<script type="text/javascript" src="../functionalities/dialog.js"></script>
+    
+    <script type='text/javascript'>
+		var pageVidIds = new Array();
+		var pageVidCC = new Array();
+		$(document).ready(function() {
+			createPopUp();
+		});
+		popUp.widthArray = [200,200,200,200,250,220,250,250,280,200,200,350,650];
+		popUp.heightArray = [120,130,150,130,160,160,160,160,180,130,120,140,290];
+		popUp.dialogPosArray = ['left top','right top','left top','left bottom','left bottom','right bottom','right bottom','right bottom','right bottom','right bottom','right bottom','right bottom','left top'];
+		popUp.parentPosArray = ['right+5 top','left-5 top','right+5 top','left top-5','left top-5','right top-5','right top-5','right top-5','right top-5','right top-5','right top-5','right top-5','right+5 top'];
+		popUp.elementOfPosArray = ['#trigger1','#trigger2','#trigger3','#trigger4','#trigger5','#trigger6','#trigger7','#trigger8','#trigger9','#trigger10','#trigger11','#trigger12','#trigger13'];
+		function pauseAllVideos() {};
+	</script>
+	<script type="text/javascript">
+		//adding 508 text to the beginning of all dialog boxes to include "begin dialog" text
+		$.widget("ui.dialog", $.extend({}, $.ui.dialog.prototype, {
+			_title: function(title) {
+				if (!this.options.title ) {
+					title.html("&#160;");
+				} else {
+					title.html('<span class="sect508">Beginning of pop up.</span> '+this.options.title);
+				}
+			}
+		}));
+	</script>
+
+    </head>
+<body>
+<!-- When the user selects the Resources button, this text is called in functionalities/shell.js on line 846 - function callResources()-->
+                    <div id="content" class="resources">
+                    	
+                        <div id="helpWrap">
+                        	<div class='whtbrdCenter'>
+								<p>Instructional text, as shown below, appears on some screens. It provides directions to complete the screen, so please read this text carefully.</p>
+								<p class='actionText'>Click the highlighted elements on this screen to learn about the navigation tools in this course. Be aware that whenever a navigation button is disabled, it will appear gray on the page.</p>
+								<p class='actionText'>When you're finished reviewing this tutorial, please close this browser window to return to the lesson.</p></div>
+              				<a href='#trigger1' id='trigger1' class='help_title'><span>Course Title</span></a>
+                            <a href='#trigger2' id='trigger2' class='help_exit'><span>Exit Button</span></a>
+                            <a href='#trigger3' id='trigger3' class='help_breadcrumb'><span>Breadcrumb</span></a>
+                            <a href='#trigger13' id='trigger13' class='help_access'><span>Accessibility Information</span></a>
+                            <a href='#trigger4' id='trigger4' class='help_menu'><span>Menu Button</span></a>
+                            <a href='#trigger5' id='trigger5' class='help_resources'><span>Resources Button</span></a>
+                            <a href='#trigger6' id='trigger6' class='help_print'><span>Print Button</span></a>
+                            <a href='#trigger7' id='trigger7' class='help_cc'><span>Closed Captioning Button</span></a>
+                            <a href='#trigger8' id='trigger8' class='help_volume'><span>Volume Button</span></a>
+                            <a href='#trigger9' id='trigger9' class='help_replay'><span>Replay Button</span></a>
+                            <a href='#trigger10' id='trigger10' class='help_playPause'><span>Play/Pause Buttons</span></a>
+                            <a href='#trigger11' id='trigger11' class='help_progress'><span>Progress Bar</span></a>
+                            <a href='#trigger12' id='trigger12' class='help_nextBack'><span>Next/Back Buttons</span></a>
+                            
+                        </div> <!-- helpWrap -->
+                        <div id='popUp_1' title='Lesson Title'>The course title will appear on every screen in this lesson.		<span class="sect508">End of pop up. Select Tab to go to the Close button.</span></div>
+                        <div id='popUp_2' title='Exit Button'>This button allows you to exit the lesson by closing this window and your browser page.<span class="sect508">End of pop up. Select Tab to go to the Close button.</span></div>
+                        <div id='popUp_3' title='Breadcrumb'>The breadcrumb will show the topic and current page title. It will change as you advance through the lesson.<span class="sect508">End of pop up. Select Tab to go to the Close button.</span></div>
+                        <div id='popUp_4' title='Menu Button'>The Menu displays a list of all the topics in this lesson. Clicking on a topic will take you directly to that screen. <span class="sect508">End of pop up. Select Tab to go to the Close button.</span></div>
+                        <div id='popUp_5' title='Resources Button'>This button displays a list of helpful documents, web pages, and online tools that will help you better understand the lesson information and continue your learning after you’ve completed the course.<span class="sect508">End of pop up. Select Tab to go to the Close button.</span></div>
+                        <div id='popUp_6' title='Print Button'>The Print button opens a transcript of this lesson, in PDF format, that contains text of the narration and screen images. Keyboard Combo: CTRL+ALT+O.<span class="sect508">End of pop up. Select Tab to go to the Close button.</span></div>
+                        <div id='popUp_7' title='CC Button'>This button opens and closes the closed-captioning feature that displays an audio script of each page’s narration.  Keyboard Combo: CTRL+ALT+C.<span class="sect508">End of pop up. Select Tab to go to the Close button.</span></div>
+                        <div id='popUp_8' title='Volume Button'>This button turns the volume on and off. If you need to adjust the level of volume, please use the volume controls on your computer. Keyboard Combo: CTRL+ALT+M.<span class="sect508">End of pop up. Select Tab to go to the Close button.</span></div>
+                        <div id='popUp_9' title='Replay Button'>This button will reset and repeat the current page’s information and audio narration.  Use the replay button to review pages you have already seen or reattempt a knowledge check. Keyboard Combo: CTRL+ALT+R.<span class="sect508">End of pop up. Select Tab to go to the Close button.</span></div>
+                        <div id='popUp_10' title='Play/Pause Button'>This button resumes play or allows you to pause the current screen. Keyboard Combo: CTRL+ALT+P.<span class="sect508">End of pop up. Select Tab to go to the Close button.</span></div>
+                        <div id='popUp_11' title='Progress Bar'>This bar shows your progression through the lesson.<span class="sect508">End of pop up. Select Tab to go to the Close button.</span></div>
+                        <div id='popUp_12' title='Next and Back Buttons'>These navigation buttons allow you to advance forward or backward between screens. Back Keyboard Combo: CTRL+ALT+B. Next Keyboard Combo: CTRL+ALT+N.<span class="sect508">End of pop up. Select Tab to go to the Close button.</span></div>
+                        <div id='popUp_13' title='Accessibility Information'><p>Below is a list of included features to support the accessible use of this course:</p><ul><li><strong>Course Transcript:</strong> This course includes a transcript that you can use to review the text of the course at your own pace. Though you are welcome to retake this course as you need, feel free to print the transcript for your personal reference.</li><li><strong>Closed Captions:</strong> This course contains a synchronized text version of the audio narration. By default, this feature is off when you start the course.</li><li><strong>Accessibility Notes:</strong> For slides that may require additional information to be used accessibly, there will be a small set of instructions readable only to screen readers. These instructions are intended to provide additional context for animation or specific activities that the user may be called upon to do.</li></ul><span class="sect508">End of pop up. Select Tab to go to the Close button.</span></div>
+                    </div><!-- content -->
+</body>
+</html>

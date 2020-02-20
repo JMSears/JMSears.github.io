@@ -1,0 +1,36 @@
+<!DOCTYPE html >
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Multiple Columns Template</title>
+    <!-- below is the template which will be passed on to the javascript in the body.
+    	 to enter a new element into this template you will need to use {{name}}
+         if the element contains html you will need to use the following {{{name}}}-->  
+    <script id="scoContent-template" type="text/x-handlebars-template">
+	{{#if customHTML}}<div>{{{customHTML}}}</div>{{/if}}
+	{{#if customClass}}<div class="{{customClass}}">{{setNavNext customClass}}{{/if}}
+	{{#each columns.col}}
+		<div class='col {{#if this.customClass}}{{customClass}}{{/if}}' style="width:{{this.width}}px;">
+			{{{this.customHTML}}}
+		</div>
+	{{/each}}
+	{{#if customClass}}</div>{{/if}}
+	</script>
+</head>
+<body tabindex='-1'>
+    <div id="content-placeholder" class="cols">
+        <script type="text/javascript">
+            var source = $("#scoContent-template").html();
+            var template = Handlebars.compile(source);
+			Handlebars.registerHelper("setNavNext", function (custClass) {
+				if (custClass == 'summary') {
+					setNav('next','00_00_000','Course Homepage');
+				}
+			});
+			
+            $("#content-placeholder").append(template(pageContent));	
+        </script>
+    </div>   
+	
+</body>
+</html>

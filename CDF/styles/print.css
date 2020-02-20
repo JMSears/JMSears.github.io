@@ -1,0 +1,8 @@
+#nameEntry,
+#printBtn,
+.noPrint {
+	display:none;	
+}
+#certWrap {
+	border:none;
+}

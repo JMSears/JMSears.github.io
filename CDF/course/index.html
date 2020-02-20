@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<!-- Version: 2.01 Updated: 2/19/16-->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Career Development Facilitator</title>
+	<!-- Style Sheets -->
+	<link type="text/css" rel="stylesheet" media="all" href="../styles/jScrollPane.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="../styles/utility.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="../styles/shell.css" />
+    <link type="text/css" rel="stylesheet" media="all" href="../styles/content.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="../styles/ui-lightness/jquery-ui-1.8.23.custom.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="../styles/jquery-adayana.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="../styles/formQuiz.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="../styles/slideshow.css" />
+    <link type="text/css" rel="stylesheet" media="all" href="videos/video-js.css" />
+	<!--[if IE]>
+    	<link rel="stylesheet" type="text/css" media="screen" href="../styles/ie_shell.css" />
+    	<link rel="stylesheet" type="text/css" media="screen" href="../styles/ie_content.css" />
+    <![endif]-->
+	<!--[if IE 7]>
+    	<link rel="stylesheet" type="text/css" media="screen" href="../styles/ie7_shell.css" />
+        <link rel="stylesheet" type="text/css" media="screen" href="../styles/ie7_content.css" />
+    <![endif]-->
+	<!--[if lt IE 7]>
+    	<link rel="stylesheet" type="text/css" media="all" href="../styles/ie6_shell.css" />
+        <link rel="stylesheet" type="text/css" media="all" href="../styles/ie6_content.css" />
+    <![endif]-->
+    
+	<!-- Javascript -->
+    <script type="text/javascript" src="../functionalities/cookie.js"></script>
+    <script type="text/javascript" src="../functionalities/json2.js"></script>
+    <script type="text/javascript" src="../functionalities/browserDetect.js"></script>
+    <script type="text/javascript" src="../functionalities/detect.js"></script>
+    <script type="text/javascript" src="../functionalities/utility.js"></script>
+	<script type="text/javascript" src="../functionalities/jQuery/jquery-1.8.0.min.js"></script>
+	<script type="text/javascript" src="../functionalities/jQuery/jquery-ui-1.10.2.custom.min.js"></script>
+    <script type="text/javascript" src="../functionalities/jstorage.js"></script>
+    <script type="text/javascript" src="../functionalities/shellStorage.js"></script>
+	<script type="text/javascript" src="scoMenu.js"></script>
+    <script type="text/javascript" src="scoContent.js"></script>
+	<script type="text/javascript" src="../functionalities/shellData.js"></script>
+   	<script type="text/javascript" src="../functionalities/APIWrapper.js"></script>
+	<script type="text/javascript" src="../functionalities/SCORM.js"></script>
+	<script type="text/javascript" src="../functionalities/ContentObject.js"></script>
+	<script type="text/javascript" src="../functionalities/MenuObject.js"></script>
+   <!-- <script type="text/javascript" src="../functionalities/MenuObject_mobile.js"></script>-->
+    <script type="text/javascript" src="../functionalities/loadingScreen.js"></script>
+	<script type="text/javascript" src="../functionalities/shell.js"></script>	
+	<script type="text/javascript">
+		var delayPage = false;
+		function delayCourse(toggle){
+			if (toggle=="on") { 
+				delayPage = true;
+				$('#delayOff').removeClass('togSel');
+				$('#delayOff').addClass('togUn');
+				$('#delayOff').html('					Automatically Play Audio <span class="sect508">Unselected</span>');
+				$('#delayOn').removeClass('togUn');
+				$('#delayOn').addClass('togSel');
+				$('#delayOn').html('										Wait to Play Audio <span class="sect508">Selected</span>');
+				
+				//console.log('delaypage is toggled on');
+			}
+			else {
+				delayPage = false; 
+				$('#delayOn').removeClass('togSel');
+				$('#delayOn').addClass('togUn');
+				$('#delayOn').html('										Wait to Play Audio <span class="sect508">Unselected</span>');
+
+				$('#delayOff').removeClass('togUn');
+				$('#delayOff').addClass('togSel');
+				$('#delayOff').html('					Automatically Play Audio <span class="sect508">Selected</span>');				//console.log('delaypage is toggled off');
+				
+
+			}
+		}
+	</script>
+	<script type="text/javascript">
+		//adding 508 text to the beginning of all dialog boxes to include "begin dialog" text
+		$.widget("ui.dialog", $.extend({}, $.ui.dialog.prototype, {
+			_title: function(title) {
+				if (!this.options.title ) {
+					title.html("&#160;");
+				} else {
+					title.html('<span class="sect508">Beginning of pop up</span> '+this.options.title);
+				}
+			}
+		}));
+	</script>
+	<script type="text/javascript" src="../functionalities/jQuery/jquery.mousewheel.js"></script>
+    <script type="text/javascript" src="../functionalities/jQuery/jquery.hotkeys.js"></script>
+	<script type="text/javascript" src="../functionalities/dialog.js"></script>
+    <script type="text/javascript" src="../functionalities/popUp.js"></script>
+    <script type="text/javascript" src="../functionalities/contentSwap.js"></script>
+	<script type="text/javascript" src="../functionalities/jQuery/jScrollPane.js"></script>
+    <script type="text/javascript" src="../functionalities/jPlayer/jquery.jplayer.min.js"></script>
+    <script type="text/javascript" src="../functionalities/formQuiz/formQuiz.js"></script>
+    <script type="text/javascript" src="../functionalities/handlebars-1.0.rc.1.js"></script>
+    <script type="text/javascript" src="../functionalities/mdetect.js"></script>
+    <script type="text/javascript" src="../functionalities/content.js"></script>
+    <script type="text/javascript" src="../functionalities/debug.js"></script>
+    <script type="text/javascript" src="../functionalities/swfobject.js"></script>
+    <script type="text/javascript" src="videos/video.js"></script>
+	<!--<script type="text/javascript" src="https://formscentral.acrobat.com/Clients/Current/FormsCentral/htmlClient/scripts/adobe.form.embed.min.js"></script>-->
+    <script type="text/javascript">
+        _V_.options.flash.swf = "videos/video-js.swf";
+    </script>
+	<script type="text/javascript">
+		
+		//Test for Mobile device (iPhone, Android, Windows 7/8)
+		var iphoneTierHomePage = 'index_mobile.html';
+		if (MobileEsp.IsTierIphone)
+		{
+			shell.onMobileDevice = true;
+			window.location = iphoneTierHomePage;
+		}
+	
+		// NEED TO SET FOR EACH MODULE
+		// The passing percentage for the scored activities in the module -- used to evaluate completion for LMS
+		var passingScore = 70;
+		// The page numbers (according to the module X of Y text) of the scoredActivity pages
+		// Each lesson is its own array
+		var scoredActivities = [[],[]];
+	</script>
+</head>				
+<body>	
+	
+	<div id="outerWrap">
+        <div id="innerWrap">          
+            <a href="#pageNav" tabindex="1" class="skipToNav" id="bct">Skip to navigation</a>
+            <div id="headerWrap">
+				<div id="headerLeftWrap"><img src="../images/Logos.png" alt="VA Learning University and MyCareerAtVA logos"/></div>
+                <div id="headerRightWrap"><a href="#" type="button" id="exitLink" class="shellNav" title="Exit"><span>Exit</span></a></div>
+                <div id="courseTitle"></div>
+                <div id="seriesTitle" tabindex="-1"></div>
+                <div id="breadcrumbText"></div>
+            </div><!-- end headerWrap -->
+            <div id="contentWrap">
+                <div id="content">	
+                    <div id="mainFrame"></div>   
+                    <!--<iframe name="mainFrame" id="mainFrame" frameborder="0" tabindex="1" src="blank.html" width="auto"></iframe>   -->            
+                    
+                </div><!-- end content -->
+            </div><!-- end contentWrap -->
+            
+            <div id="footerOuterWrap">
+                <div id="footerInnerWrap">
+                    <div id="footer">               	
+                        <div id="pageNav" tabindex="-1">
+                     		<button type="button" class="shellNav" id="navNext"><span>Next</span></button>
+							<button type="button" class="shellNav" id="navBack"><span class="insideScreen">Back</span></button>
+                        </div>
+                        <div id="lessonProgress">X of Y</div>
+                        <div id="outerProgressWrap"> 
+                            <div id="innerProgressWrap"> 
+                                <div id="progress"></div> <!--end progress-->
+                            </div> <!--end innerProgressWrap-->
+                        </div> <!--end outerProgressWrap-->
+                        <div id="audio_jplayer" class="jp-jplayer"></div>
+                        <div id="audio_container" class="jp-audio">
+                            <div id="avControls" class="jp-controls">
+                                <button type="button" id="playPause" class='pause' title='Click to pause the audio'><span>Play/Pause</span></button>
+								<button type="button" id="rewind" title="Click to replay the audio"><span>Rewind</span></button>
+                            </div>
+                            <!--<div class="jp-volume-bar offScreen" tabindex="0">
+								<div class="jp-volume-bar-value"></div>
+                            </div>-->
+                        </div>
+                        <div>
+                        	<div id="printCCVol">
+                            	<button type="button" id="volLink" title="Click to mute the audio"><span>Mute</span></button>
+								<button type="button" id="ccLink" title="Closed Captioning"><span>Closed Captioning</span></button>
+								<div id="ccDialog" title='Closed Captioning'>
+									<div id="ccText">
+									</div>
+                                    <a href='#' id='cc508Link' class='off'>Return to lesson</a>
+								</div>
+								<button type="button" id="printLink" title="Print"><span>Print</span></button>
+								<!--<li id="printBtn"><a href="#printLink" id="printLink" title="Print" tabindex="12"><span>Print</span></a></li>
+                                <li id="transcriptBtn">
+                                	<a href="#ccDialog" id="ccLink" title="Closed Captioning" tabindex="11"><span>Caption</span></a>
+                    			</li>
+                                <li id="volumeBtn"><a href="#" id="volLink" tabindex="10"><span>Volume</span></a></li>-->
+                            </div>
+                        </div>
+                        
+                        <div id="courseNav">
+							<button type="button" id="resourcesLink" class="shellNav" title="Click to open the Resources menu"><span>Resources</span></button>		
+							<div id="outerResWrap" class="off">
+								<div id="innerResWrap">
+									<div id="outerResHeaderWrap">
+										<div id="innerResHeaderWrap">
+											<div id="resHeader">
+												<div id="resTitle">Resources</div>
+												
+											</div>
+										</div>
+									</div>
+									<div id="resContent" tabindex="-1">
+										<div id="resScrollWrap">
+											<div id="res">
+												<ul>
+													<li><a href="#" id='helpLink'><h3>Help Tutorial</h3></a></li>
+                                                    <li><a href="#" id='glossaryLink'><h3>Glossary</h3></a></li>
+                                                    <li><a href="#" id='readLink'><h3>Further Reading</h3></a></li>
+													<li><a href="#" id='transcriptLink'><h3>Lesson Transcript</h3></a></li>
+                                                    <li><a href="#" id='certLink'><h3>Certificate</h3></a></li>
+													<li><a href="#" id='contactLink'><h3>Contact Us</h3></a></li>
+												</ul>
+											</div><!-- end res -->
+										</div>
+									</div><!-- end resContent -->
+									<div id="resFooter">
+										<div id="resFooterLeft">
+											<div id="resFooterRight"></div>
+                                            <div id="resClose" tabindex='0'><span>Close Resources menu</span></div>
+										</div>
+									</div>
+								</div>
+							</div> <!-- end outerResWrap -->
+							<button type="button" id="menuLink" class="shellNav" title="Click to open the Menu"><span>Menu</span></button>
+							<div id="outerMenuWrap" class="off">
+								<div id="innerMenuWrap">
+									<div id="outerMenuHeaderWrap">
+										<div id="innerMenuHeaderWrap">
+											<div id="menuHeader">
+												<div id="menuTitle">Menu</div>
+												
+											</div>
+										</div>
+									</div>
+									<div id="menuContent" tabindex="-1">
+										<div id="menuScrollWrap">
+											<div id="menu"></div><!-- end menu -->
+										</div>
+									</div><!-- end menuContent -->
+									<div id="menuFooter">
+										<div id="menuFooterLeft">
+											<div id="menuFooterRight"></div>
+                                            <div id="menuClose" tabindex='0'><span>Close Lesson menu</span></div>
+										</div>
+									</div>
+								</div>
+							</div> <!-- end outerMenuWrap -->
+                        </div>
+                        <!--<ul id="captionNav" class="off">
+                            <li id="captionBtn"><a href="#" class="shellNav" id="captionLink" title="open closed captioning" tabindex="0"></a></li>
+                        </ul>-->
+                    </div>
+                </div>
+            </div>
+         </div> <!-- end innerWrap -->
+     </div> <!-- end outerWrap -->    
+	 <div id='clickableCover' class='off'></div>
+	 
+	 <div class="preload-display">
+        <div class="preload-progress-text">Loading Page</div>
+        <div class='preload-progress-bar'></div>
+    </div>
+    <div id="preload-space" style="display:none;"></div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html >
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Custom Template</title>
+    <script type="text/javascript">
+		youTubePlayer = new Array();
+		youTubeData = new Object();
+		currYouTubeVid = "";
+    </script>
+    <script id="scoContent-template" type="text/x-handlebars-template">
+		<div class="accessText"></div>
+		{{#if title}}<h2>{{{title}}}</h2>{{/if}}
+		{{#if youTubeId}}{{loadYouTubeAPI youTubeId}}{{/if}}
+		<div>{{{customHTML}}}</div>
+	</script> 
+
+</head>
+    
+	
+
+<body tabindex='-1'>
+
+<div id="content-placeholder">
+	<script type="text/javascript">
+        var source = $("#scoContent-template").html();
+		var template = Handlebars.compile(source);
+		var isYouTube = false;
+		Handlebars.registerHelper("loadYouTubeAPI", function (id) {
+			if (!isYouTubeIframeAPIReady) initYouTubePlayer();
+			youTubeData[id] = {id:id};
+			console.log(youTubeData);
+			isYouTube = true;
+		});				
+		$("#content-placeholder").append(template(pageContent));
+		$(document).ready(function() {
+				if (isYouTube) {
+					createAccessText();
+					loadYouTubeVideos();
+				}
+			});		
+    </script>
+</div>   
+
+</body>
+</html>

@@ -1,0 +1,144 @@
+/* Menu *******************************************************************************************/
+#outerMenuWrap {
+    background: url("../images/feedback_L.jpg") repeat-y scroll left top #FFFFFF;
+    border: 0 none;
+    bottom: 40px;
+    left: 72px;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    width: 250px;
+    z-index: 100;
+	}
+
+#innerMenuWrap {
+	background: transparent url(../images/feedback_R.jpg) top right repeat-y;
+    width: 100%;
+	position: relative;
+	}
+
+
+#outerMenuHeaderWrap {
+	background: transparent url(../images/feedback_T.jpg) top left repeat-x;
+	height: 25px;
+	width: 100%;
+	position: static;
+}
+#menuFooter {
+    background: transparent url(../images/feedback_B.jpg) top left repeat-x;
+    height: 4px;
+    width: 100%;
+	overflow: hidden;
+	}
+	
+#menuContent {
+    padding: 0 4px 0 4px;
+	}
+	
+
+
+#menuClose {
+	position: absolute;
+	top: 8px;
+	right: 8px;
+	height: 12px;
+    width: 12px;
+	background: transparent url(../images/feedback_close.jpg) top left no-repeat;
+	padding: 0;
+	margin: 0;
+}
+
+
+#menuScrollWrap {
+    font-size: 14px;
+    overflow: auto;
+	}
+#menu {
+    overflow: hide;
+	width: 242px;
+    padding: 0;
+	margin: 0;
+	}
+#menuList {
+    padding: 0;
+	margin: 0;
+	}
+
+#menu h3, 
+#menu h4, 
+#menu h5, 
+#menu h6 {
+	padding: 0;
+	margin: 8px 17px;
+	position: relative;
+	display: block;
+	}
+
+#menu h3 {
+    font-weight: bold;
+	}
+
+#menu h3 span {
+    float: right;
+	}
+
+#menu h4, 
+#menu h5, 
+#menu h6 {
+    font-weight: normal;
+	}
+
+#menu a {
+    color: #000000;
+    display: block;
+    float: left;
+	}
+
+#menu ul a {
+    float: left;
+	}
+
+#menu span {
+    display: none;
+	}
+
+#menu li span {
+    height: 100%;
+	}
+
+#menu ul {
+    list-style-type: none;
+	}
+
+#menu .noExpand {
+    display: none;
+	}
+
+#menu li {
+    float: none;
+	display: block;
+	height: auto;
+	}
+	
+#menu a.current h4, 
+#menu a.current:hover h4 {
+    color: #190096;
+	}
+
+#menu a:hover h4 {
+    /*color: #C80000;*/
+	}
+
+#menu a:hover {
+    background: transparent url('../images/shell_menu_hover.jpg') top left repeat;
+	}
+
+.lineSpacer {
+    background: green url('../images/shell_menu_line.jpg') top left repeat-x;
+    height: 1px;
+	position: relative;
+	overflow: hidden;
+	}
+.firstLineSpacer {
+	top: 0;
+	}

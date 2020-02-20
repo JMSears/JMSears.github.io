@@ -1,0 +1,71 @@
+<!DOCTYPE html >
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Content Swap</title>
+	<link type="text/css" rel="stylesheet" media="all" href="videos/video-js.css" />
+	<script src="videos/video.js"></script>
+    <script type="text/javascript">
+        _V_.options.flash.swf = "videos/video-js.swf";
+    </script>
+	<!-- below is the template which will be passed on to the javascript in the body.
+    	 to enter a new element into this template you will need to use {{name}}
+         if the element contains html you will need to use the following {{{name}}}-->
+    <script id="scoContent-template" type="text/x-handlebars-template">
+	<!--<h2>{{title}}</h2>-->
+	<div id="branchStartPage">
+		{{{customHTML}}}
+		{{setUpBSP}}
+		{{#each branches}}
+			{{setUpBranch this.id this.trigger}}
+		{{/each}}
+		{{#if audio}}
+			{{initAudioReplay replayAudio}}
+		{{/if}}
+		{{initBSP}}
+	</div>
+	</script>
+</head>
+<body tabindex='-1'>
+    <div id="content-placeholder">
+        <script type="text/javascript">
+            var source = $("#scoContent-template").html();
+            var template = Handlebars.compile(source);
+			var myCurrBranch = 0;
+			Handlebars.registerHelper("setUpBSP", function () {
+				if (!shell.branchStartPages.BSPInitArray[shell.currPageId]) {
+					//console.log('BSP array does not already exist');
+					shell.branchStartPages.BSPArray[shell.currPageId] = new Array();
+				} else {
+					//console.log('BSP array already exists');
+				}
+			});
+			
+			Handlebars.registerHelper("setUpBranch", function (id, trigger) {
+				if (!shell.branchStartPages.BSPInitArray[shell.currPageId]) {
+					storeNewBranch(id, trigger);
+				} else {
+					//console.log("already started");	
+					//console.log(shell.branchStartPages.BSPArray[shell.currPageId]);
+				}
+			});
+
+			Handlebars.registerHelper("initAudioReplay", function (status) {
+				//console.log("setting BSPReplayAudioArray to "+ status);
+				shell.branchStartPages.BSPReplayAudioArray[shell.currPageId] = status;
+			});
+			Handlebars.registerHelper("initBSP", function () {
+				shell.branchStartPages.BSPInitArray[shell.currPageId] = true;
+			});
+			$("#content-placeholder").append(template(currPageData));
+			setUpBranches();
+			if (!allBranchesComplete(shell.currPageId)) {
+				disableNav('next');
+			} else {
+				$('.actionText').empty();
+				$('.actionText').append('Click Next to continue.');
+			}
+        </script>
+    </div>
+</body>
+</html>

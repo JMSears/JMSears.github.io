@@ -1,0 +1,232 @@
+<!DOCTYPE html >
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Click and Learn</title>
+    <script type="text/javascript">
+        _V_.options.flash.swf = "videos/video-js.swf";
+		openerArray = new Array();
+		dialogArray = new Array();
+		popUp.widthArray = new Array();
+		popUp.heightArray = new Array();
+		var pageVidIds = new Array();
+		var pageVidCC = new Array();
+		popUp.audioArray = new Array();
+		popUp.ccArray = new Array();
+		popUp.dialogPosArray = new Array();
+		popUp.parentPosArray = new Array();
+		popUp.elementOfPosArray =  new Array();
+		popUp.extraCompleted = true; 
+		popUp.extraAlert = "";
+		$(document).ready(function() {
+			$(":tabbable:first").focus(function() { 
+					$(".ui-dialog:visible:last :tabbable:first").focus();
+			});
+		});
+		youTubePlayer = new Array();
+		youTubeData = new Object();
+		currYouTubeVid = "";
+		
+    </script>
+	<style>
+	
+	</style>
+	<!-- below is the template which will be passed on to the javascript in the body.
+    	 to enter a new element into this template you will need to use {{name}}
+         if the element contains html you will need to use the following {{{name}}}-->
+    <script id="scoContent-template" type="text/x-handlebars-template">
+	<!--<h2>{{title}}</h2>-->
+	<div id="popUpContainer">
+		<div class="accessText"></div>
+		{{{customHTML}}}
+	{{#if pageVideos }}
+		{{#each pageVideos}}
+			{{setVidIdArray this.videoId this.videoCaption}}
+		{{/each}}
+	{{/if}}
+	{{#each clickAndLearn.popUp}}
+		{{#if this.popUpSize}}
+			{{setPopUpDimensions this.popUpSize}}
+		{{/if}}
+		{{#if this.popUpPos}}
+			{{setPopUpLocation this.popUpPos}}
+		{{/if}}
+		{{#if this.vidCenter}}
+			<div id="popUp_{{this.vidCenter.trigger}}" title="{{this.vidCenter.content.title}}" class="off">
+			<div class="popUpVideo tac">
+				{{#each this.vidCenter.content.video}}
+					{{setVidIdArray this.videoId this.videoCaption}}
+					<video id="video_{{this.videoId}}" class="video-js vjs-default-skin" controls preload="none" 
+						width="{{#if this.videoWidth}}{{this.videoWidth}}{{else}}{{getDefaultWidth}}{{/if}}" 
+						height="{{#if this.videoHeight}}{{this.videoHeight}}{{else}}{{getDefaultHeight}}{{/if}}"
+						{{evalAutoPlay this.autoplay}}>
+					<source src="videos/{{this.videoId}}.mp4" type='video/mp4' />
+					<source src="videos/{{this.videoId}}.webm" type='video/webm' />
+					<source src="videos/{{this.videoId}}.ogv" type='video/ogg' />
+					<source src="" type="video/flash" />
+				</video>
+				{{/each}}
+			</div>
+		<span class="sect508">End of pop up. Select Tab to go to the Close button.</span>
+		</div>
+		{{/if}}
+		
+		{{#if this.tlvr}}
+			<div id="popUp_{{this.tlvr.trigger}}" title="{{this.tlvr.content.title}}" class="off tlvr">
+			<div class="popUpVideo">
+				{{#each this.tlvr.content.video}}
+					{{setVidIdArray this.videoId this.videoCaption}}
+					<video id="video_{{this.videoId}}" class="video-js vjs-default-skin" controls preload="none" 
+						width="{{#if this.videoWidth}}{{this.videoWidth}}{{else}}{{getDefaultWidth}}{{/if}}" 
+						height="{{#if this.videoHeight}}{{this.videoHeight}}{{else}}{{getDefaultHeight}}{{/if}}"
+						{{evalAutoPlay this.autoplay}}>
+					<source src="videos/{{this.videoId}}.mp4" type='video/mp4' />
+					<source src="videos/{{this.videoId}}.webm" type='video/webm' />
+					<source src="videos/{{this.videoId}}.ogv" type='video/ogg' />
+					<source src="" type="video/flash" />
+				</video>
+				{{/each}}
+			</div>
+			<!--<h2>{{this.tlvr.content.title}}</h2>-->
+				{{{this.tlvr.content.text}}}
+		<span class="sect508">End of pop up. Select Tab to go to the Close button.</span>
+		</div>
+		{{/if}}
+		
+		{{#if this.trvl}}
+			<div id="popUp_{{this.trvl.trigger}}" title="{{this.trvl.content.title}}" class="off trvl">
+			<div class="popUpVideo">
+				{{#each this.trvl.content.video}}
+					{{setVidIdArray this.videoId this.videoCaption}}
+					<video id="video_{{this.videoId}}" class="video-js vjs-default-skin" controls preload="none" 
+						width="{{#if this.videoWidth}}{{this.videoWidth}}{{else}}{{getDefaultWidth}}{{/if}}" 
+						height="{{#if this.videoHeight}}{{this.videoHeight}}{{else}}{{getDefaultHeight}}{{/if}}"
+						{{evalAutoPlay this.autoplay}}>
+					<source src="videos/{{this.videoId}}.mp4" type='video/mp4' />
+					<source src="videos/{{this.videoId}}.webm" type='video/webm' />
+					<source src="videos/{{this.videoId}}.ogv" type='video/ogg' />
+					<source src="" type="video/flash" />
+				</video>
+				{{/each}}
+			</div>
+			<h2>{{this.trvl.content.title}}</h2>
+				{{{this.trvl.content.text}}}
+			<span class="sect508">End of pop up. Select Tab to go to the Close button.</span>
+		</div>
+		{{/if}}
+		
+		
+		{{#if this.ttvb}}
+		<div id="popUp_{{this.ttvb.trigger}}" title="{{this.ttvb.content.title}}" class="off ttvb">
+			<h2>
+{{this.ttvb.content.title}}</h2>
+			{{{this.ttvb.content.text}}}
+			<div class="popUpVideo">
+				{{#each this.ttvb.content.video}}
+				{{setVidIdArray this.videoId this.videoCaption}}
+				<video id="video_{{this.videoId}}" class="video-js vjs-default-skin" controls preload="none" 
+						width="{{#if this.videoWidth}}{{this.videoWidth}}{{else}}{{getDefaultWidth}}{{/if}}" 
+						height="{{#if this.videoHeight}}{{this.videoHeight}}{{else}}{{getDefaultHeight}}{{/if}}"
+						{{evalAutoPlay this.autoplay}}>
+					<source src="videos/{{this.videoId}}.mp4" type='video/mp4' />
+					<source src="videos/{{this.videoId}}.webm" type='video/webm' />
+					<source src="videos/{{this.videoId}}.ogv" type='video/ogg' />
+					<source src="" type="video/flash" />
+				</video>
+				{{/each}}
+			</div>
+			<span class="sect508">End of pop up. Select Tab to go to the Close button.</span>
+		</div>
+		{{/if}}
+		
+		{{#if this.tlgr}}
+		<div id="popUp_{{this.tlgr.trigger}}" title="{{this.tlgr.content.title}}" class="off tlgr">
+			<div class="popUpImage">
+				{{#each this.tlgr.content.image}}
+					{{#if this.imageLocation}}
+						<img src="{{this.imageLocation}}" alt="{{this.altText}}" 
+							{{#if this.imageWidth}}width="{{this.imageWidth}}" {{/if}}
+							{{#if this.imageHeight}}height="{{this.imageHeight}}"{{/if}}
+						/>
+					{{/if}}
+				{{/each}}
+			</div>
+			<!--<h2>{{this.tlgr.content.title}}</h2>-->
+			{{#if this.tlgr.content.audioId}} {{setPopAudio this.tlgr.trigger this.tlgr.content.audioId this.tlgr.content.closedCaption}} {{/if}}
+			{{#if this.tlgr.content.youTubeId}}{{loadYouTubeAPI this.tlgr.content.youTubeId this.tlgr.content.youTubeSize}}{{/if}}
+			{{{this.tlgr.content.text}}}
+			<span class="sect508">End of pop up. Select Tab to go to the Close button.</span>
+			</div>
+		{{/if}}
+	{{/each}}
+	</div>
+	</script>
+</head>
+<body>
+    <div id="content-placeholder">
+        <script type="text/javascript">
+            //alert("test");
+			popUp.isRequired = pageContent.clickAndLearn.required;
+            var source = $("#scoContent-template").html();
+            var template = Handlebars.compile(source);
+			if (pageContent.clickAndLearn.extraRequired) {
+				//console.log("extra is required");
+				popUp.extraCompleted = false;
+			}
+			if (pageContent.clickAndLearn.extraAlert) {
+				//console.log(pageContent.clickAndLearn.extraAlert);
+				popUp.extraAlert = pageContent.clickAndLearn.extraAlert;
+			}
+			Handlebars.registerHelper("getDefaultWidth", function () {
+				return shell.video.width;
+			});
+			
+			Handlebars.registerHelper("getDefaultHeight", function () {
+				return shell.video.height;
+			});
+			var isYouTube = false;
+			Handlebars.registerHelper("loadYouTubeAPI", function (id, size) {
+				if (!isYouTubeIframeAPIReady) initYouTubePlayer();
+				youTubeData[id] = {id:id};
+				console.log(youTubeData);
+				isYouTube = true;
+			});	
+			Handlebars.registerHelper("evalAutoPlay", function (status) {
+				if (status == undefined) status = shell.video.autoPlay;
+				if (status == true) {
+					return "autoplay";
+				} else {				
+					return '';
+				}
+			});
+			Handlebars.registerHelper("setPopUpDimensions", function (size) {
+				popUp.widthArray[popUp.widthArray.length] = size.width;
+				popUp.heightArray[popUp.heightArray.length] = size.height;
+			});
+			Handlebars.registerHelper("setPopUpLocation", function (pos) {
+				popUp.dialogPosArray[popUp.dialogPosArray.length] = pos.popUpPosition;
+				popUp.parentPosArray[popUp.parentPosArray.length] = pos.parentPosition;
+				popUp.elementOfPosArray[popUp.elementOfPosArray.length] = pos.elementOfPosition;
+			});
+			Handlebars.registerHelper("setPopAudio", function (id, audioId, cc) {
+				storeSubCCData(id, audioId, cc);
+				popUp.audioArray["#popUp_"+id] = audioId;	
+			});
+			
+			Handlebars.registerHelper("setVidIdArray", function (id, cc) {
+				updatePageVidIds("video_"+id, cc);			
+			});
+			$("#content-placeholder").append(template(currPageData));
+			//alert('test');
+			createPopUp();
+			initializeVideos();
+			$(document).ready(function() {
+				if (isYouTube) {
+					createAccessText();
+					loadYouTubeVideos();
+				}
+			});
+        </script>
+    </div>
+</body>
+</html>

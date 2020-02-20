@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>HTML5 JavaScript Template Shell</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+	<!-- Style Sheets -->
+ 
+	<link type="text/css" rel="stylesheet" media="all" href="../styles/jScrollPane.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="../styles/utility.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="../styles/shell.css" />
+    <link type="text/css" rel="stylesheet" media="all" href="../styles/content.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="../styles/ui-lightness/jquery-ui-1.8.23.custom.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="../styles/jquery-adayana.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="../styles/formQuiz.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="../styles/slideshow.css" />
+	<!--[if IE]>
+    	<link rel="stylesheet" type="text/css" media="screen" href="../styles/ie_shell.css" />
+    	<link rel="stylesheet" type="text/css" media="screen" href="../styles/ie_content.css" />
+    <![endif]-->
+	<!--[if IE 7]>
+    	<link rel="stylesheet" type="text/css" media="screen" href="../styles/ie7_shell.css" />
+        <link rel="stylesheet" type="text/css" media="screen" href="../styles/ie7_content.css" />
+    <![endif]-->
+	<!--[if lt IE 7]>
+    	<link rel="stylesheet" type="text/css" media="all" href="../styles/ie6_shell.css" />
+        <link rel="stylesheet" type="text/css" media="all" href="../styles/ie6_content.css" />
+    <![endif]-->
+    
+   	<link type="text/css" rel="stylesheet" media="all" href="../styles/jquery.mobile-1.2.0.min.css" />
+    <link rel="stylesheet" href="../styles/shell_jquery_mobile.min.css" />
+    <link type="text/css" rel="stylesheet" media="all" href="../styles/shell_mobile.css" />
+
+    
+	<!-- Javascript -->
+    <script type="text/javascript" src="../functionalities/utility.js"></script>
+	<script type="text/javascript" src="../functionalities/jQuery/jquery-1.8.0.min.js"></script>
+	<script type="text/javascript" src="../functionalities/jQuery/jquery-ui-1.8.23.custom.min.js"></script>
+	<script type="text/javascript" src="../functionalities/jQuery/jquery.mousewheel.js"></script>
+	<script type="text/javascript" src="scoMenu.js"></script>
+    <script type="text/javascript" src="scoContent.js"></script>
+	<script type="text/javascript" src="../functionalities/shellData.js"></script>
+   	<script type="text/javascript" src="../functionalities/APIWrapper.js"></script>
+	<script type="text/javascript" src="../functionalities/SCORM.js"></script>
+	<script type="text/javascript" src="../functionalities/ContentObject.js"></script>
+	<script type="text/javascript" src="../functionalities/MenuObject.js"></script>
+	<script type="text/javascript" src="../functionalities/shell.js"></script>	
+	<script type="text/javascript" src="../functionalities/dialog.js"></script>
+	<script type="text/javascript" src="../functionalities/jQuery/jScrollPane.js"></script>
+    <script type="text/javascript" src="../functionalities/jPlayer/jquery.jplayer.min.js"></script>
+    <script type="text/javascript" src="../functionalities/formQuiz/formQuiz.js"></script>
+    <script type="text/javascript" src="../functionalities/handlebars-1.0.rc.1.js"></script>
+    <script type="text/javascript" src="../functionalities/jquery.mobile-1.2.0.min.js"></script>
+    <script type="text/javascript" src="../functionalities/shell_mobile.js"></script>
+    
+	<script type="text/javascript">
+	
+		// NEED TO SET FOR EACH MODULE
+		// The passing percentage for the scored activities in the module -- used to evaluate completion for LMS
+		var passingScore = 70;
+		// The page numbers (according to the module X of Y text) of the scoredActivity pages
+		// Each lesson is its own array
+		var scoredActivities = [[],[4,5,6,7]];
+	</script>
+    
+</head>				
+<body>
+
+<div id="page" data-role="page" data-theme="a" data-fulscreen="true");">
+	
+    <div data-role="header" data-position="fixed">
+    	<a href="#" data-icon="grid" id="openMenu">Menu</a>
+		<h4 id="moduleTitleName"></h4>
+	</div>
+    
+    <div data-role="content">
+    
+    	<div class="hideMe">
+            
+            <div id="headerWrap">
+                <div id="courseTitle">
+                </div>
+                <div id="seriesTitle">
+                </div>
+            </div><!-- end headerWrap -->
+       	
+        </div>     
+		        
+       	<div id="contentWrap">
+            <div id="content">
+                <div id="mainFrame"></div>           
+            </div><!-- end content -->
+		</div><!-- end contentWrap -->
+        
+        <div id="ccContent" title="Closed Captioning">
+       		<div id="ccText">
+            </div>
+       	</div>
+  	  	
+     	<div data-role="collapsible-set" id="menuButtons">
+        	<div data-role="collapsible" data-theme="a" data-collapsed-icon="adayana-plus"  data-expanded-icon="adayana-minus" id="mobileCollapsibleButtons">
+           		<h3>Menu</h3>
+                <div class="on">
+                    <div id="menuContent" tapindex="0">
+                        <div id="menuScrollWrap">
+                            <div id="menu">
+                            </div><!-- end menu -->
+                        </div>
+                    </div><!-- end menuContent -->
+                </div><!-- end on -->
+      		</div><!-- mobileCollapsibleButtons -->
+      	</div><!-- menuButtons --> 
+   	</div><!-- /content -->
+    
+    <div data-role="footer" data-position="fixed" data-theme="a">    
+    
+   		
+        <div data-role="navbar" >
+        
+            <ul>
+            	<li><a href="#"  id="rewind" title="Rewind" tabindex="1">Rewind</a></li>
+                <li><a href="#" id="play" title="Play" tabindex="1">Pause</a></li>
+                <li><a href="#" id="ccLink" title="Transcript" tabindex="12">CC</a></li>
+         	</ul>
+              
+ 		</div>
+        
+		<div data-role="navbar">
+            <ul >
+                <li id="backBtn"><a href="#" class="shellNav" id="navBack" title="Go to previous page" tabindex="3">Back</a></li>
+                <li id="lessonProgress"></li>
+                <li id="nextBtn"><a href="#" class="shellNav" id="navNext" title="Go to next page" tabindex="2">Next</a></li>
+            </ul>
+       	</div>
+        
+	</div><!-- /footer -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="hideMe">
+    
+    		<div id="footerOuterWrap">
+                <div id="footerInnerWrap">
+                    <div id="footer">               	
+                        <ul id="pageNav">
+                            <li id="backBtn"><a href="#" class="shellNav" id="navBack" title="Go to previous page" tabindex="3"></a></li>
+                            <li id="nextBtn"><a href="#" class="shellNav" id="navNext" title="Go to next page" tabindex="2"></a></li>
+                        </ul>
+                        <div id="lessonProgress" class="off">X of Y</div>
+                        <div id="outerProgressWrap"> 
+                            <div id="innerProgressWrap"> 
+                                <div id="progress"></div> <!--end progress-->
+                            </div> <!--end innerProgressWrap-->
+                        </div> <!--end outerProgressWrap-->
+                        <div id="audio_jplayer" class="jp-jplayer"></div>
+                        <div id="audio_container" class="jp-audio">
+                            <ul id="avControls" class="jp-controls">
+                                <li><a href="#" id="rewind" title="Rewind" tabindex="1"></a></li>
+                                <li><a href="#" id="play" title="Play" tabindex="1"></a><a href="#" id="pause" title="Pause" tabindex="1"></a></li>
+                                <li id="transcriptBtn"><a href="#" id="ccLink" title="Transcript" tabindex="12"></a></li>
+                            </ul>
+                        </div>
+                        <a href="#mainFrame" tabindex="4" style="position:absolute; left:-1000px;">Skip to content</a>
+                        <ul id="courseNav">
+                            <li id="menuBtn"><a href="#" id="menuLink" class="shellNav" title="Menu" tabindex="5"></a></li>
+                            <li id="resourcesBtn"><a href="#" id="resourcesLink" class="shellNav" title="Resources" tabindex="6"></a></li>
+                            <li id="glossaryBtn"><a href="#" id="glossaryLink" class="shellNav" title="Glossary" tabindex="7"></a></li>
+                            <li id="helpBtn"><a href="#" id="helpLink" class="shellNav" title="Help" tabindex="8"></a></li>
+                        </ul>
+                        <ul id="captionNav" class="off">
+                            <li id="captionBtn"><a href="#" class="shellNav" id="captionLink" title="open closed captioning" tabindex="0"></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>	
+            <div id="outerMenuWrap" class="off">
+                <div id="innerMenuWrap">
+                    <div id="outerMenuHeaderWrap">
+                        <div id="innerMenuHeaderWrap">
+                            <div id="menuHeader">
+                                <div id="menuTitle"></div>
+                                <div id="menuClose"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="menuContent" tapindex="0">
+                        <div id="menuScrollWrap">
+                            <div id="menu"></div><!-- end menu -->
+                        </div>
+                    </div><!-- end menuContent -->
+                    <div id="menuFooter">
+                        <div id="menuFooterLeft">
+                            <div id="menuFooterRight"></div>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- end outerMenuWrap -->
+        </div> <!-- end outerWrap -->
+        
+    
+    </div>
+   
+	
+</div>    
+        
+</body>
+</html>

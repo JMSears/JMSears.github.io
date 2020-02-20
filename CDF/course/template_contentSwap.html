@@ -1,0 +1,262 @@
+<!DOCTYPE html >
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Content Swap</title>
+    <script type="text/javascript">
+		openerArray = new Array();
+		dialogArray = new Array();
+		var pageVidIds = new Array();
+		var pageVidCC = new Array();
+		contentSwap.audioArray = new Array();
+		contentSwap.ccArray = new Array();	
+		youTubePlayer = new Array();
+		youTubeData = new Object();
+		currYouTubeVid = "";
+		contentSwap.extraCompleted = true; 
+		contentSwap.actionCompleted = true; 
+		contentSwap.actionAlert= "";
+    </script>
+	<!-- below is the template which will be passed on to the javascript in the body.
+    	 to enter a new element into this template you will need to use {{name}}
+         if the element contains html you will need to use the following {{{name}}}-->
+    <script id="scoContent-template" type="text/x-handlebars-template">
+	<!--<h2>{{{title}}}</h2>-->
+	<div id="contentSwapPage">
+		<div class="accessText"></div>
+		{{{customHTML}}}
+		<div {{#if contentSwap.customClass}}class="{{contentSwap.customClass}}"{{/if}}>
+			<div id='initialContentSwap'>{{#if contentSwap.initialContent}} {{{contentSwap.initialContent}}} {{/if}}</div>
+			<div {{#if contentSwap.triggerClass}}class="{{contentSwap.triggerClass}}"{{/if}}>
+				<ul>
+				{{#each contentSwap.trigger}}
+					<li><a href='#' id='trigger{{this.id}}' {{#if this.customClass}}class='{{this.customClass}}'{{/if}}>{{this.text}}</a></li>
+				{{/each}}
+				</ul>
+			</div>
+			<div id="{{#if contentSwap.contentId}}{{contentSwap.contentId}}{{else}}contentDisplay{{/if}}" style="{{#if contentSwap.width}}width:{{contentSwap.width}}px;{{/if}} {{#if contentSwap.height}}height:{{contentSwap.height}}px;{{/if}}">
+				<div id='contentSwapInner'>
+					
+				{{#each contentSwap.swap}}
+					{{#if this.vidCenter}}
+						<div tabindex='-1' id="contentNum_{{this.vidCenter.trigger}}" class="off{{#if this.vidCenter.content.layoutClass}} {{this.vidCenter.content.layoutClass}}{{/if}}">
+							{{#if this.vidCenter.content.title}}<h2>{{{this.vidCenter.content.title}}}</h2>{{/if}}
+							<div class="video tac">
+								{{#each this.vidCenter.content.video}}
+									{{setVidIdArray this.videoId this.videoCaption}}
+									<video id="video_{{this.videoId}}" class="video-js vjs-default-skin" controls preload="none" 
+										width="{{#if this.videoWidth}}{{this.videoWidth}}{{else}}{{getDefaultWidth}}{{/if}}" 
+										height="{{#if this.videoHeight}}{{this.videoHeight}}{{else}}{{getDefaultHeight}}{{/if}}"
+										{{evalAutoPlay this.autoplay}}>
+										<source src="videos/{{this.videoId}}.mp4" type='video/mp4' />
+										<source src="videos/{{this.videoId}}.webm" type='video/webm' />
+										<source src="videos/{{this.videoId}}.ogv" type='video/ogg' />
+										<source src="" type="video/flash" />
+									</video>
+								{{/each}}
+							</div>
+							<a href='#' id='contentNum_{{this.vidCenter.trigger}}_tabReturn' class='tabReturn'>Return to tabs</a>
+						</div>
+					{{/if}}		
+					{{#if this.tlvr}}
+						<div tabindex='-1' id="contentNum_{{this.tlvr.trigger}}" class="off tlvr{{#if this.tlvr.content.layoutClass}} {{this.tlvr.content.layoutClass}}{{/if}}">
+							{{#if this.tlvr.content.title}}<h2>{{{this.tlvr.content.title}}}</h2>{{/if}}
+							<div class="video">
+								{{#each this.tlvr.content.video}}
+									{{setVidIdArray this.videoId this.videoCaption}}
+									<video id="video_{{this.videoId}}" class="video-js vjs-default-skin" controls preload="none" 
+										width="{{#if this.videoWidth}}{{this.videoWidth}}{{else}}{{getDefaultWidth}}{{/if}}" 
+										height="{{#if this.videoHeight}}{{this.videoHeight}}{{else}}{{getDefaultHeight}}{{/if}}"
+										{{evalAutoPlay this.autoplay}}>
+									<source src="videos/{{this.videoId}}.mp4" type='video/mp4' />
+									<source src="videos/{{this.videoId}}.webm" type='video/webm' />
+									<source src="videos/{{this.videoId}}.ogv" type='video/ogg' />
+									<source src="" type="video/flash" />
+								</video>
+								{{/each}}
+							</div>
+							{{{this.tlvr.content.text}}}
+							<a href='#' id='contentNum_{{this.tlvr.trigger}}_tabReturn' class='tabReturn'>Return to tabs</a>
+						</div>
+					{{/if}}
+					{{#if this.trvl}}
+						<div tabindex='-1' id="contentNum_{{this.trvl.trigger}}" class="off trvl{{#if this.trvl.content.layoutClass}} {{this.trvl.content.layoutClass}}{{/if}}">
+							{{#if this.trvl.content.title}}<h2>{{{this.trvl.content.title}}}</h2>{{/if}}
+							<div class="video">
+								{{#each this.trvl.content.video}}
+									{{setVidIdArray this.videoId this.videoCaption}}
+									<video id="video_{{this.videoId}}" class="video-js vjs-default-skin" controls preload="none" 
+										width="{{#if this.videoWidth}}{{this.videoWidth}}{{else}}{{getDefaultWidth}}{{/if}}" 
+										height="{{#if this.videoHeight}}{{this.videoHeight}}{{else}}{{getDefaultHeight}}{{/if}}"
+										{{evalAutoPlay this.autoplay}}>
+										<source src="videos/{{this.videoId}}.mp4" type='video/mp4' />
+										<source src="videos/{{this.videoId}}.webm" type='video/webm' />
+										<source src="videos/{{this.videoId}}.ogv" type='video/ogg' />
+										<source src="" type="video/flash" />
+									</video>
+								{{/each}}
+							</div>
+							{{{this.trvl.content.text}}}
+							<a href='#' id='contentNum_{{this.trvl.trigger}}_tabReturn' class='tabReturn'>Return to tabs</a>
+						</div>
+					{{/if}}
+					{{#if this.ttvb}}
+						<div tabindex='-1' id="contentNum_{{this.ttvb.trigger}}" class="off ttvb{{#if this.ttvb.content.layoutClass}} {{this.ttvb.content.layoutClass}}{{/if}}">
+							{{#if this.ttvb.content.title}}<h2>{{{this.ttvb.content.title}}}</h2>{{/if}}
+							{{{this.ttvb.content.text}}}
+							<div class="video">
+								{{#each this.ttvb.content.video}}
+									{{setVidIdArray this.videoId this.videoCaption}}
+									<video id="video_{{this.videoId}}" class="video-js vjs-default-skin" controls preload="none" 
+											width="{{#if this.videoWidth}}{{this.videoWidth}}{{else}}{{getDefaultWidth}}{{/if}}" 
+											height="{{#if this.videoHeight}}{{this.videoHeight}}{{else}}{{getDefaultHeight}}{{/if}}"
+											{{evalAutoPlay this.autoplay}}>
+										<source src="videos/{{this.videoId}}.mp4" type='video/mp4' />
+										<source src="videos/{{this.videoId}}.webm" type='video/webm' />
+										<source src="videos/{{this.videoId}}.ogv" type='video/ogg' />
+										<source src="" type="video/flash" />
+									</video>
+								{{/each}}
+							</div>
+							<a href='#' id='contentNum_{{this.ttvb.trigger}}_tabReturn' class='tabReturn'>Return to tabs</a>
+						</div>
+					{{/if}}
+					{{#if this.tlgr}}
+						{{setAudioCCArray this.tlgr.trigger this.tlgr.content.audioId this.tlgr.content.closedCaption}}
+						<div tabindex='-1' id="contentNum_{{this.tlgr.trigger}}" class="off tlgr{{#if this.tlgr.content.layoutClass}} {{this.tlgr.content.layoutClass}}{{/if}}">	
+							<div class="image">
+								{{#each this.tlgr.content.image}}
+									{{#if this.imageLocation}}
+										<img src="{{this.imageLocation}}" alt="{{this.altText}}" 
+											{{#if this.imageWidth}}width="{{this.imageWidth}}" {{/if}}
+											{{#if this.imageHeight}}height="{{this.imageHeight}}"{{/if}}
+										/>
+									{{/if}}
+								{{/each}}
+							</div>
+							{{#if this.tlgr.content.title}}<h2>{{{this.tlgr.content.title}}}</h2>{{/if}}
+							{{#if this.tlgr.content.youTubeId}}{{loadYouTubeAPI this.tlgr.content.youTubeId}}{{/if}}
+							{{{this.tlgr.content.text}}}
+							<a href='#' id='contentNum_{{this.tlgr.trigger}}_tabReturn' class='tabReturn'>Return to tabs</a>
+						</div>
+					{{/if}}
+					{{#if this.trgl}}
+						{{setAudioCCArray this.trgl.trigger this.trgl.content.audioId this.trgl.content.closedCaption}}
+						<div tabindex='-1' id="contentNum_{{this.trgl.trigger}}" class="off trgl{{#if this.trgl.content.layoutClass}} {{this.trgl.content.layoutClass}}{{/if}}">	
+							<div class="image">
+								{{#each this.trgl.content.image}}
+									{{#if this.imageLocation}}
+										<img src="{{this.imageLocation}}" alt="{{this.altText}}" 
+											{{#if this.imageWidth}}width="{{this.imageWidth}}" {{/if}}
+											{{#if this.imageHeight}}height="{{this.imageHeight}}"{{/if}}
+										/>
+									{{/if}}
+								{{/each}}
+							</div>
+							{{#if this.trgl.content.title}}<h2>{{{this.trgl.content.title}}}</h2>{{/if}}
+							{{{this.trgl.content.text}}}
+							<a href='#' id='contentNum_{{this.trgl.trigger}}_tabReturn' class='tabReturn'>Return to tabs</a>
+						</div>
+					{{/if}}
+					{{#if this.ttgb}}
+						{{setAudioCCArray this.ttgb.trigger this.ttgb.content.audioId this.ttgb.content.closedCaption}}
+						<div tabindex='-1' id="contentNum_{{this.ttgb.trigger}}" class="off ttgb{{#if this.ttgb.content.layoutClass}} {{this.ttgb.content.layoutClass}}{{/if}}" >	
+							{{#if this.ttgb.content.title}}<h2>{{{this.ttgb.content.title}}}</h2>{{/if}}
+							{{{this.ttgb.content.text}}}
+							<div>
+								{{#each this.ttgb.content.image}}
+									{{#if this.imageLocation}}
+										<img src="{{this.imageLocation}}" alt="{{this.altText}}" 
+											{{#if this.imageWidth}}width="{{this.imageWidth}}" {{/if}}
+											{{#if this.imageHeight}}height="{{this.imageHeight}}"{{/if}}
+										/>
+									{{/if}}
+								{{/each}}
+								<a href='#' id='contentNum_{{this.ttgb.trigger}}_tabReturn' class='tabReturn'>Return to tabs</a>
+							</div>
+						</div>
+					{{/if}}
+					{{#if this.cust}}
+						{{setAudioCCArray this.cust.trigger this.cust.content.audioId this.cust.content.closedCaption}}
+						{{#if this.cust.content.subClosedCaption }}
+							{{setSubCCArray this.cust.trigger this.cust.content.subClosedCaption }}
+						{{/if}}
+						<div tabindex='-1' id="contentNum_{{this.cust.trigger}}" class="off cust{{#if this.cust.content.layoutClass}} {{this.cust.content.layoutClass}}{{/if}}" >	
+							{{{this.cust.content.customHTML}}}
+							{{#if this.cust.content.youTubeId}}{{loadYouTubeAPI this.cust.content.youTubeId}}{{/if}}
+							<a href='#' id='contentNum_{{this.cust.trigger}}_tabReturn' class='tabReturn'>Return to tabs</a>
+						</div>
+					{{/if}}
+				{{/each}}
+				</div>
+			</div>
+		</div>
+	</script>
+</head>
+<body tabindex='-1'>
+    <div id="content-placeholder">
+        <script type="text/javascript">
+            //alert("test");
+			contentSwap.isRequired = pageContent.contentSwap.required || shell.contentSwap.isRequired;
+			if (pageContent.contentSwap.extraRequired) {
+				//console.log("extra is required");
+				contentSwap.extraCompleted = false;
+			}
+			if (pageContent.contentSwap.actionRequiredBeforeSwap == true) {
+				//console.log("action is required");
+				contentSwap.actionCompleted = false;
+				contentSwap.actionAlert = pageContent.contentSwap.actionAlert;
+			}
+			//console.log(contentSwap.isRequired);
+            var source = $("#scoContent-template").html();
+            var template = Handlebars.compile(source);
+			
+			Handlebars.registerHelper("getDefaultWidth", function () {
+				return shell.video.width;
+			});
+			
+			Handlebars.registerHelper("getDefaultHeight", function () {
+				return shell.video.height;
+			});
+			var isYouTube = false;
+			Handlebars.registerHelper("loadYouTubeAPI", function (id) {
+				if (!isYouTubeIframeAPIReady) initYouTubePlayer();
+				youTubeData[id] = {id:id};
+				console.log(youTubeData);
+				isYouTube = true;
+			});	
+
+			Handlebars.registerHelper("evalAutoPlay", function (status) {
+				if (status == undefined) status = shell.video.autoPlay;
+				if (status == true) {
+					return "autoplay";
+				} else {				
+					return '';
+				}
+			});
+			Handlebars.registerHelper("setVidIdArray", function (id, cc) {
+				updatePageVidIds("video_"+id, cc);			
+			});
+			Handlebars.registerHelper("setAudioCCArray", function (num, id, cc) {
+				storeSubCCData(num, id, cc);
+				contentSwap.audioArray[num] = id;
+				//contentSwap.ccArray[num] = cc;
+			});
+			Handlebars.registerHelper("setSubCCArray", function (num, subCC) {
+				storeSubSubCCData(num, subCC);
+			});
+			
+			$("#content-placeholder").append(template(currPageData));
+			//alert('test');
+			createContentSwap();
+			initializeVideos();
+			$(document).ready(function() {
+				if (isYouTube) {
+					createAccessText();
+					loadYouTubeVideos();
+				}
+			});	
+        </script>
+    </div>
+</body>
+</html>

@@ -1,0 +1,186 @@
+/* formQuiz ***************************************************************************************/
+fieldset {
+	border:none;
+	margin:0 0 10px 0;
+	padding:0;
+}
+.wrap legend {
+	width:520px;	
+}
+legend {
+	margin:0;
+	padding:0;
+	top: 0 !important;
+    left: 0 !important;	
+}
+legend p {
+	margin:0 !important;	
+}
+/*@-moz-document url-prefix() { 
+  fieldset legend {
+    top: 0 !important;
+    left: 0 !important;
+    }
+  }*/
+.formQuiz ul {
+	list-style-type:none;
+	margin-top:0;
+	margin-left:0;
+	margin-bottom:10px;
+	padding-left:0;
+	clear: left;
+	}
+.formQuiz li {
+  clear: both;
+  float: left;
+  margin: 1px 0;
+  min-height: 25px;
+  padding-left: 20px;
+  width: 410px;
+}
+.threeQuarterWidth .formQuiz li {
+  width: 600px;
+}
+.fullWidth .formQuiz li {
+  width: 800px;
+}
+.formQuiz li label {
+  float: right;
+  margin-left: 0;
+  margin-top: 7px;
+  width: 385px;
+}
+.threeQuarterWidth .formQuiz li label {
+  width: 570px;
+}
+.fullWidth .formQuiz li label {
+  width: 770px;
+}
+.formQuiz label.stimWrap {
+	clear:both;
+	float: right;
+  	margin-left: 10px;
+  	margin-top: 7px;
+  	width: 680px;
+}
+.threeQuarterWidth .formQuiz label.stimWrap {
+  	width: 450px;
+}
+.halfWidth .formQuiz label.stimWrap {
+  	width: 285px;
+}
+.formQuiz li input {
+  float: right;
+  margin-left: 0;
+  margin-right: 5px;
+  margin-top: 7px;
+}
+.formQuiz .imgMc {
+	float:left;
+	width:290px;
+	}
+.formQuiz .imgMc span {
+	display:block;
+	float:left;
+	height:24px;
+	width:22px;
+	}
+.formQuiz .imgMc img {
+	float:left;
+	margin-left:0;
+	}
+.formQuiz select {
+	margin-top: 5px;
+	}
+
+#content-placeholder .formQuiz p.stimWrap {
+	margin-top: 5px;
+	margin-bottom:0;
+	}
+.quiz .formQuiz .stimWrap {
+	border-top:2px solid #B30B11;
+	margin-top:10px;
+	padding-top:8px;
+}
+.fl + .stimWrap {
+	float: left;
+	width: 430px;
+	}
+.wider .fl + .stimWrap {
+	width: 300px;
+	}
+.formQuiz input:focus  {
+	outline:1px dotted #000;	
+}
+.ddWrap.fr,
+.ddWrap .fr {
+	margin-left:0;	
+}
+#content-placeholder .ddWrap p.fr {
+	margin-bottom:0;	
+}
+/* images & icons *********************************************************************************/
+.correct,
+.shouldCheck,
+.incorrect {
+	background-position:left center;
+	background-repeat:no-repeat;
+	}
+.correct {
+	background:url(../images/icon_correct.png) 0px 0px no-repeat;
+	}
+.shouldCheck {
+	background:url(../images/icon_shouldCheck.png) 0px 0px no-repeat;
+	}
+.incorrect {
+	background:url(../images/icon_incorrect.png) 0px 0px no-repeat;
+	}
+.dataCollection	.shouldCheck,
+.dataCollection	.incorrect {
+	background:none;
+}
+.noCorrect .incorrect {
+	background:none;
+}	
+/* formSubmit *************************************************************************************/
+.formSubmit {
+	background: transparent url('../images/submit_normal.png') top left no-repeat;
+	clear:left;
+	float: left;
+	cursor: hand;
+	width:81px;
+	}
+a.buttonText {
+	/*background: transparent url('../images/submit_normal_right.png') top right no-repeat;*/
+	text-decoration: none;
+	display: block;
+	cursor: hand;
+}
+a.buttonText span {
+	/*background: transparent url('../images/submit_normal_left.png') top left no-repeat;*/
+	padding: 5px 13px 0 18px;
+	color: #030000;
+	height: 40px;
+	display: block;
+	cursor: hand;
+	}
+.formSubmit a:hover,
+.formSubmit a:focus {
+	background: transparent url('../images/submit_hover.png') top left no-repeat;
+	outline:none;
+	}
+
+#afterQuiz {
+	clear: left;
+}
+.posFb{
+	color: #00334D;
+	font-weight:bold;
+}
+.negFb{
+	color: #820024;
+	font-weight:bold;
+}
+.formQuiz label.stimWrap {
+	
+}

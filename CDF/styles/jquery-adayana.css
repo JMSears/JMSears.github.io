@@ -1,0 +1,279 @@
+.ui-widget {
+	font-family:Arial, Helvetica, sans-serif;
+}
+
+.ui-dialog {
+    font-size: 14px;
+	border-bottom-right-radius: 8px;
+	border-bottom-left-radius: 8px;
+	border-top-right-radius: 8px;
+	border-top-left-radius: 8px;
+	}
+
+.ui-dialog .ui-dialog-content {
+	background-color:#F4F4F4;
+	color: #030000;
+		}
+.ui-dialog .ui-dialog-content p {
+	margin-bottom:12px;	
+}
+.ui-dialog-titlebar {
+	background-color:#A2DCE7;
+	border:1px solid #A7A9AC;
+	border-bottom-color:#7DD1E1;
+	border-bottom-right-radius: 0px;
+	border-bottom-left-radius: 0px;
+	border-left-width:0;
+	border-right-width:0;
+	color: #030000;
+	font-weight:bold;
+	height: 21px;
+	padding-bottom:0;
+	}
+
+.ui-state-hover .ui-icon, .ui-state-focus .ui-icon {
+    background-image: url(smoothness/images/ui-icons_FFFFFF_256x240.png);
+	}
+
+.ui-widget-header .ui-icon {
+    background-image: url(smoothness/images/ui-icons_FFFFFF_256x240.png);
+	}
+
+.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus {
+    background: transparent;
+    border: 1px solid #FFF;
+    color: #212121;
+    font-weight: normal;
+	}
+
+
+.ui-dialog .ui-dialog-titlebar-close {
+    background: transparent;
+    cursor: pointer;
+    height: 25px;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    right: 4px;
+    top: 3px;
+    width: 25px;
+    z-index: 1001;
+	}
+	
+.ui-dialog .ui-icon {
+    height: 25px;
+    width: 25px;
+	left:0;
+	top:0;
+	}
+.ui-dialog .ui-widget-header .ui-icon {
+    background-image: url(../images/btnExit.png);
+	background-position:0 0;
+	}
+.ui-dialog .ui-icon-closethick {
+    background-position: 0px 0px;
+	}
+.ui-dialog .ui-dialog-titlebar-close.ui-state-hover .ui-icon-closethick,
+.ui-dialog .ui-dialog-titlebar-close.ui-state-focus .ui-icon-closethick {
+	background-position: -25px 0px;
+}
+
+.ui-dialog .ui-state-hover, 
+.ui-dialog .ui-widget-content .ui-state-hover,
+.ui-dialog .ui-widget-header .ui-state-hover, 
+.ui-dialog .ui-state-focus, 
+.ui-dialog .ui-widget-content .ui-state-focus, 
+.ui-dialog .ui-widget-header .ui-state-focus {
+    background: transparent;
+    border: none;
+    color: #030000;
+    font-weight: normal;
+	}
+	
+.ui-dialog.ui-debug .ui-state-hover, 
+.ui-dialog.ui-debug .ui-widget-content .ui-state-hover,
+.ui-dialog.ui-debug .ui-widget-header .ui-state-hover, 
+.ui-dialog.ui-debug .ui-state-focus, 
+.ui-dialog.ui-debug .ui-widget-content .ui-state-focus, 
+.ui-dialog.ui-debug .ui-widget-header .ui-state-focus {
+    background: url("images/ui-bg_glass_100_f6f6f6_1x400.png") repeat-x scroll 50% 50% #F6F6F6;
+    border: 1px solid #000000;
+    color: #030000;
+    font-weight: bold;
+    }
+    
+.ccDialog.ui-widget-content {
+	background-color: transparent;
+	z-index:1000;
+}
+.ccDialog .ui-dialog-titlebar {
+	background: transparent url('../images/blue70.png') left top repeat;
+}
+.ui-widget-content {
+    background: #ebebeb;
+    color: #222222;
+	}
+.ui-dialog .ui-icon-gripsmall-diagonal-se {
+	background-position: 256px 240px;
+	}
+
+.ui-dialog .ui-icon-grip-diagonal-se {
+	background-position: 256px 240px;
+	}
+
+/**************************************************************************************************
+ *   Tips Popup  // resizeable version...
+ **************************************************************************************************/
+.fbpop {
+    background: #FFFFFF;
+    color: #FFF;
+    font-size: 14px;
+    height: 146px;
+    margin: none;
+    overflow: visible;
+    padding: none;
+    position: absolute;
+    width: 576px;
+	}
+
+.fbpop p {
+    margin: 0 0 0.5em;
+	}
+
+.fbpop .ui-dialog-content {
+    background: #F4F4F4 url("../images/feedback_icon.jpg") scroll left top no-repeat;
+	border: none;
+    clear: left;
+    color: #030000;
+    overflow: auto;
+    padding: 5 10px;
+	}
+
+.fbpop #tips_text_wrap {
+	}
+
+.fbpop #tips_text_scroll {
+    margin: 9px 10px 10px 86px;
+    overflow: hide;
+	}
+	
+.fbpop .ui-icon-gripsmall-diagonal-se {
+	background-position: 256px 240px;
+	}
+
+.fbpop .ui-icon-grip-diagonal-se {
+	background-position: 256px 240px;
+	}
+	
+/**************************************************************************************************
+ *   Tips Popup  // jScrollPane Version...  NEED TO MODIFY!!!!
+ **************************************************************************************************/
+.fbpop-ie6 { 
+	position: absolute;
+	background: transparent url(../images/feedback_ie6.jpg) top left no-repeat;
+	width: 422px;
+	height: 172px;
+	font-size: 14px;
+	border: 0 none;
+	margin: 0;
+	padding: 0;
+	color: #FFF; 
+	}
+
+/*** Close Button *********************************************************************************/
+.fbpop-ie6 .ui-icon {
+	height: 12px;
+    width: 12px;
+	}
+
+.fbpop-ie6 .ui-icon-closethick {
+	background-position: 0px 0px; 
+}
+.fbpop-ie6 .ui-widget-header .ui-icon {
+    background-image: url(../images/feedback_close.png);
+	}
+	
+.fbpop-ie6 .ui-state-hover, 
+.fbpop-ie6 .ui-widget-content .ui-state-hover, 
+.fbpop-ie6 .ui-widget-header .ui-state-hover, 
+.fbpop-ie6 .ui-state-focus, 
+.fbpop-ie6 .ui-widget-content .ui-state-focus, 
+.fbpop-ie6 .ui-widget-header .ui-state-focus { 
+	border: none; 
+	background: transparent; 
+	font-weight: normal; 
+	color: #212121; 
+}
+
+	
+/*** Titlebar *************************************************************************************/
+.fbpop-ie6 .ui-dialog-titlebar {
+	background: transparent;
+	padding: 0;
+	}
+.fbpop-ie6 .ui-widget-header { 
+	background: transparent;
+	height: 25px;
+	width: 422px;
+	border: 0 none;
+	margin: 0;
+	padding: 0;
+	color: #000; 
+	position: relative;
+	}
+
+.fbpop-ie6 .ui-dialog-title { 
+	background: transparent;
+	color: #FFF;
+	font-size: 13px;
+	word-spacing: 2px;
+	position: absolute;
+	width: 422px;
+	text-align: center;
+	top: 4px;
+	}
+.fbpop-ie6 .ui-dialog-titlebar-close { 
+	background: transparent;
+	position: absolute;
+	z-index: 5; 
+	right: 1px; 
+	top: 6px;
+	width: 19px; 
+	margin: 0; 
+	padding: 0; 
+	height: 18px; 
+}
+
+/*** Content **************************************************************************************/
+.fbpop-ie6 .ui-dialog-content {
+	clear: left;
+	border: none; 
+	background: transparent;
+	color: #222222; 
+	position: relative;
+}
+.fbpop-ie6 div.ui-dialog-content {
+	padding: 0;
+	margin: 10px;
+	overflow: hidden;
+}
+.fbpop-ie6 .fbpop-ie6Content {
+	height: 100%;
+	width: 100%;
+}
+.fbpop-ie6 .jScrollPaneTrack {
+	border: 0 none;
+	background: transparent url('../images/sliderTrack.jpg') top left repeat-y;
+	}
+.fbpop-ie6 .jScrollPaneDrag {
+	background: transparent url('../images/sliderButton.jpg') no-repeat top left;
+	}
+.fbpop-ie6 .jScrollCapTop {
+	background: transparent url('../images/sliderTrack_top.jpg') top right no-repeat;
+	}
+.fbpop-ie6 .jScrollCapBottom {
+	position: relative;
+	top: 160px;
+	background: transparent url('../images/sliderTrack_bottom.jpg') bottom right no-repeat;
+	}
+

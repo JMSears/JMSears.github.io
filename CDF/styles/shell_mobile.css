@@ -1,0 +1,169 @@
+@charset "utf-8";
+/* CSS Document */
+
+#menuContent {
+	background: transparent;
+	padding: 0 4px 0 4px;
+	height: 100%;
+	margin-top: 4px;
+}
+
+.ui-icon-adayana-plus {
+	background-image: url(images/adayana_plus_18.png);
+	background-repeat: no-repeat;
+}
+
+.ui-icon-adayana-minus {
+	background-image: url(images/adayana_minus_18.png);
+	background-repeat: no-repeat;
+}
+
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+	.ui-icon-adayana-plus {
+		background-image: url(images/adayana_plus_36.png);
+		background-size: 18px 18px;
+	}
+	
+	.ui-icon-adayana-minus {
+		background-image: url(images/adayana_minus_36.png);
+		background-size: 18px 18px;
+	}
+}
+
+#menuButtons {
+	display:none
+}
+
+.hideMe {
+	display:none
+}
+
+#contentWrap {
+	background: none;
+    height: 100%;
+	margin-left: 0px;
+	margin-top:0px;
+	padding-left:0px;
+	}
+/* Progress Bar */
+#outerProgressWrap {
+	float:right;
+	height:50px;
+	margin:11px 16px 0 0;
+	padding:0;
+	width:140px;
+	}	
+#innerProgressWrap {
+	background:url('../images/pb_full.png') top right no-repeat;
+	height:50px;
+	margin:0;
+	margin-left:-5px;
+	}
+#progress {
+	background:url('../images/pb_left.png') left top no-repeat;
+	height:11px;
+	width:142px;
+	}
+#captionNav {
+    left: 406px;
+    position: absolute;
+    top: 10px;
+	}
+
+#captionLink {
+    background: transparent url('../images/btn_caption.jpg') top left no-repeat;
+    height: 30px;
+    width: 88px;
+	}
+#captionLink:hover {
+    background-position: -88px 0;
+	}
+/* Audio and Video controls ***********************************************************************/
+.jp-jplayer {
+	float:none;	
+}
+#audio_container {
+	float:none;
+	margin:0 0 0 0;	
+	width:100%;
+}
+#avControls{
+	margin:0;
+	padding:0;
+	width: auto;	
+}
+#rewind {
+	background-image:none;
+	height: auto;
+	width: auto;
+}
+#rewind:hover {
+	background-position: 0 0;
+}
+#rewind.dim, #rewind.dim:hover{
+	background-position: 0 0;
+}
+#play {
+	background-image:inherit;
+	height: auto;
+	width: auto;
+}
+#pause {
+	background-image:inherit;
+	height: auto;
+	width: auto;
+}
+#play:hover, #pause:hover{
+	background-position: 0 0;
+}
+#play.dim, #play.dim:hover,
+#pause.dim, #pause.dim:hover{
+	background-position: 0 0;
+}
+#ccLink{
+	background-image:inherit;
+	height: auto;
+	width: auto;
+}
+#ccLink:hover{
+	background-position: 0 0;
+}
+#ccLink.dim, #ccLink.dim:hover{
+	background-position: 0 0;
+}
+
+
+/* Page Navigation ********************************************************************************/
+ul#pageNav {
+	float:none;
+	margin:0 0 0 0;
+	 width: 100%;
+	}
+
+#navBack {
+    background-image:none;
+    height: auto;
+    width: auto;
+	}
+
+#navNext {
+    background-image:inherit;
+    height: auto;
+    width: auto;
+	}	
+
+#navNext.dim, #navNext.dim:hover, #navBack.dim, #navBack.dim:hover {
+    background-position: 0 0;
+	}
+
+#navNext:hover, #navBack:hover {
+    background-position: 0 0;
+	}
+	
+ul#courseNav a, ul#captionNav a, ul#pageNav a, ul#avControls a {
+    float: none;
+	}
+.ui-body-a, .ui-overlay-a {
+    background: linear-gradient(#F9F9F9, #FFFFFF) repeat scroll 0 0 #F9F9F9;
+}
