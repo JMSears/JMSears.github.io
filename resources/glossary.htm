@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="language" content="English" />
+<title>Glossary</title>
+<link href="../css/custom.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+    
+    var path = "../";	// specify the relative location of this file in the directory structure
+	
+	var bookmark = false;	// true will bookmark this page, false will not
+	
+	var pageBack = "0";	// enter a value to override the automated navigation system
+	var pageNext = "0";	// enter a value to override the automated navigation system
+    
+    var pageInstructions="Select Exit to close this window.";
+
+</script>
+<script type="text/javascript" src="../js/config.js"></script>
+</head>
+<body>
+<div id="wrapperMain">
+  <script type="text/javascript">drawHeaderNewWin();</script>
+  <!-- END header -->
+  <div id="wrapperContent">
+    <script type="text/javascript">drawUpperPage();</script>
+    <div id="content" style="padding-bottom:30px;">
+    <script type="text/javascript">drawGlossary();</script>
+    </div>
+    <!-- END content -->
+  </div>
+  <!-- END wrapperContent -->
+   <script type="text/javascript">
+		afterNewWinLoadAdjustments();
+	</script> 
+ <script type="text/javascript">//drawFooterNewWin();</script>
+  <!-- END footer -->
+</div>
+<!-- END wrappermain -->
+</body>
+</html>
