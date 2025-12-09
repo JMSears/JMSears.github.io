@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="language" content="English" />
+<title>Read the Contract!</title>
+<link href="../css/custom.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+var pageGuid = "1e3472fe-a254-4e35-a152-30400b48504b";       // uniquely identify this storyboard page
+var path = "../";       // specify the relative location of this file in the directory structure
+var bookmark = true;       // true will bookmark this page, false will not
+var pageBack = ""; // 0 will disable button, enter a value to override the automated navigation system
+var pageNext = "";       // 0 will disable button, enter a value to override the automated navigation system
+var pageInstructions="When finished reviewing this article, select Next to continue.";
+		function runPostPgLoad() {
+			afterLoadAdjustments()
+		} // runPostPgLoad
+</script>
+<script type="text/javascript" src="../js/config.js"></script>
+<link href="../css/read_the_contract_page.css" rel="stylesheet" type="text/css" />
+<script src="../js/read_the_contract_script.js"></script>
+<script>
+	getPageVariables("01_003.js")
+</script>
+
+<style>
+#policyBox li {
+	text-indent:0;
+}
+</style>
+</head>
+<body>
+<div id="wrapperMain">
+<script type="text/javascript">drawHeader();</script>
+  <!-- END header -->
+  <div id="wrapperContent">
+    <script type="text/javascript">drawUpperPage();</script>
+			<div id="content">
+			<div id="cover"></div>
+				<p>You can review the article below in conjunction with its related articles, laws and regulations, and VA policies.</p>
+				<div id="readTheContractPage">
+					<div id="agreementDiv">
+						<div id="agreementBackground"></div>
+
+						<div id="primaryArticle">
+							<div id="primaryHeading">
+								<h2 style="margin-top:0;">Primary Article</h2>
+							</div>
+							<div id="primaryLink">
+								<!--main link goes here-->
+							</div>
+						</div>
+						<div id="relatedArticles">
+							<div id="relatedHeading">
+								<h2 style="margin-top:0;">Related Articles</h2>
+							</div>
+							<div id="relatedLinks">
+								<!--related links build here-->
+							</div>
+						</div>
+						<div id="masterAgreement">
+							<div id="masterHeading">
+								<h2 style="margin-top:0;">Master Agreement</h2>
+							</div>
+							<div id="masterBox">
+								<div id="doc">
+									<!--master agreement builds here-->
+								</div>
+
+							</div>
+						</div>
+					</div>
+					<div id="lawsAndRegs" style="border:solid 0px green; display:inline-block; position:absolute; top:0; left:650px; ">
+						<div id="lawsBackground" style="width:315px; height:205px; top:32px; position:absolute; background-image:url('../images/LCA_Mast_AG_Box_LR_new.jpg');background-repeat:no-repeat;"></div>
+						<div id="lawsHeading" style="border:solid 0px green; display:inline-block; width:310px; text-align:center;">
+							<h2 style="margin-top:0;">Laws and Regulations</h2>
+						</div>
+						<div id="lawsBox" style="border:solid 0px green; display:inline-block; width:292px; padding:0 5px 0 15px; margin-top:13px; overflow-y:auto; height:195px; position:relative;">
+							<div>
+								<p style="margin:5px 0;">You can <a class="linkFocus" href="https://www.govinfo.gov" target="_blank" onclick="disclaimer('ext');">search for and view these documents on GovInfo.</a></p>
+							</div>
+							<div style="position:relative; border:solid 0px green;">
+								<div id="lawsCol1" style="display: inline-block; width: 135px; border:solid 0px red; position:absolute; top:0; margin:0 auto;">
+									<ul style="list-style-type:none; text-indent:-30px; margin:0;">
+										<!--law and regs col 1 goes here-->
+									</ul>
+								</div>
+								<div id="lawsCol2" style="display: inline-block; width:135px; border:solid 0px red; position:absolute; top:0; left:140px; margin:0 auto;">
+									<ul style="list-style-type:none; text-indent:-30px; margin:0;">
+										<!--law and regs col 2 goes here-->
+									</ul>
+								</div>
+							</div>
+
+						</div>
+					</div>
+					<div id="policy">
+						<div id="policyBackground"></div>
+						<div id="policyHeading">
+							<h2 style="margin-top:0;">VA Policy</h2>
+						</div>
+						<div id="policyBox">
+						<!-- VA only -->
+							<p style="margin:5px 0;">You can search for and view this document on <a class="linkFocus" href="https://www.va.gov/vapubs/" target="_blank" onclick="disclaimer('int');">VA Publications</a>.</p>
+						
+						<!--VHA only -->
+							<!--<p style="margin:5px 0;">You can search for and view this document on <a class="linkFocus" href="https://www.va.gov/vhapublications/" target="_blank" onclick="disclaimer('int');">VHA Publications.</a></p>-->
+
+							<!--VA & VHA -->
+							<!--<p style="margin:5px 0;">You can search for and view these documents on <a class="linkFocus" href="https://www.va.gov/vapubs/" target="_blank" onclick="disclaimer('int');">VA Publications</a> or <a class="linkFocus" href="https://www.va.gov/vhapublications/" target="_blank" onclick="disclaimer('int');">VHA Publications.</a></p>-->
+							
+							<ul style="list-style-type:none; margin-left:-50px;margin-bottom:5px;">
+								<!--policies get populated here-->
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+    <!-- END content -->
+      <div id="player-1" class="fullScreenAudioOMP"></div>
+
+	  
+  <script type="text/javascript">
+	OmniMedia.config.maxBufferingTime = 500;
+	var p = $('#player-1').omnimediaplayer({
+		adOn: false,
+		autoAdvance: true,
+		autoPlay: _sAP=="true",
+		background: '',
+		ccOn: _sCD=="true",
+		chapter: 1,
+		volume: 0.8,
+		suppressErrors: true,
+		playlist: [{
+			location: '../media/03_03_01_003.mp3',
+			captions: '../media/03_03_01_003.vtt'
+		}],
+		plugins: {
+			Captions: {
+				container: null,
+				draggable: false, // experimental, not keyboard accessible
+				showAdTranscript: true
+			},
+			ClickToPlay: {
+				controlFlash: false,
+				showOverlay: false
+			},
+			PlayerControls: {
+				allowFullscreen: false, // experimental, not supported by older browsers
+				controls: {
+					play: true,
+					previous: 'auto',
+					rewind: true,
+					fastforward: true,
+					next: 'auto',
+					volume: true,
+					options: 'auto'
+				},
+				display: {
+					chapter: 'auto',
+					time: 'auto'
+				},
+				small: false // experimental, not mobile friendly
+			},
+			PlayTracker: {
+				completionBar: {
+					display: false,
+					completeColor: '#0000ff',
+					incompleteColor: '#efefef'
+				}
+			},
+                Transcaptions: {
+                    disabled: true,
+                    search: true,
+                    tcOn: false
+                },
+		ShowHide: {
+				duration: 500
+			},
+			TitleDescription: {
+				titleElement: null,
+				descriptionElement: null
+			}
+		}
+	});
+//p.on('omnimediaplayer.mediatimeupdate', function (e, t) {
+    // support legacy syncPlayerClock functions
+//    runPlayerClock(OmniMedia.Utils.tohms(t, false).replace(/:/g, '.'));
+//});
+</script>
+			<!-- END content -->
+		</div>
+		<!-- END wrapperContent -->
+		<script type="text/javascript">
+			drawFooter();
+			//addMasterAgreement();
+		</script>
+		<!-- END footer -->
+	</div>
+	<!-- END wrappermain -->
+
+</body>
+
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="language" content="English" />
+    <title>An Informal Classification Review</title>
+    <link href="../css/custom.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript">
+        var pageGuid = "9b10dcfd-bcfa-45ad-a9de-751a062b7bad"; // uniquely identify this storyboard page
+        var path = "../"; // specify the relative location of this file in the directory structure
+        var bookmark = true; // true will bookmark this page, false will not
+        var pageBack = ""; // 0 will disable button, enter a value to override the automated navigation system
+        var pageNext = ""; // 0 will disable button, enter a value to override the automated navigation system
+        var pageInstructions = "Select Next to continue.";
+        function runPostPgLoad() {
+			setupAutoSync()
+			afterLoadAdjustments()
+        } // runPostPgLoad
+    </script>
+    <script type="text/javascript" src="../js/config.js"></script>
+</head>
+
+<body>
+    <div id="wrapperMain">
+        <script type="text/javascript">
+            drawHeader();
+        </script>
+        <!-- END header -->
+        <div id="wrapperContent">
+            <script type="text/javascript">
+                drawUpperPage();
+            </script>
+            <div id="content">
+			<div id="cover"></div>
+                <p>An informal classification review with HR and the Union is normally completed in 30 calendar days.</p>
+				<img class="fullScreenGraphic" style="position:absolute; bottom:70px;" src="../images/M3_L03_14.png" id="IMG_1390_02_007_01" alt="" />
+            </div>
+	<div id="player-1" class="fullScreenAudioOMP"></div>
+
+
+	<script type="text/javascript">
+		OmniMedia.config.maxBufferingTime = 500;
+		var p = $('#player-1').omnimediaplayer({
+			adOn: false,
+			autoAdvance: true,
+			autoPlay: _sAP == "true",
+			background: '',
+			ccOn: _sCD == "true",
+			chapter: 1,
+			volume: 0.8,
+			suppressErrors: true,
+			playlist: [{
+				location: '../media/03_03_02_007.mp3',
+				captions: '../media/03_03_02_007.vtt'
+			}],
+			plugins: {
+				Captions: {
+					container: null,
+					draggable: false, // experimental, not keyboard accessible
+					showAdTranscript: true
+				},
+				ClickToPlay: {
+					controlFlash: false,
+					showOverlay: false
+				},
+				PlayerControls: {
+					allowFullscreen: false, // experimental, not supported by older browsers
+					controls: {
+						play: true,
+						previous: 'auto',
+						rewind: true,
+						fastforward: true,
+						next: 'auto',
+						volume: true,
+						options: 'auto'
+					},
+					display: {
+						chapter: 'auto',
+						time: 'auto'
+					},
+					small: false // experimental, not mobile friendly
+				},
+				PlayTracker: {
+					completionBar: {
+						display: false,
+						completeColor: '#0000ff',
+						incompleteColor: '#efefef'
+					}
+				},
+				Transcaptions: {
+					disabled: true,
+					search: true,
+					tcOn: false
+				},
+				ShowHide: {
+					duration: 500
+				},
+				TitleDescription: {
+					titleElement: null,
+					descriptionElement: null
+				}
+			}
+		});
+		p.on('omnimediaplayer.mediatimeupdate', function (e, t) {
+		// support legacy syncPlayerClock functions
+		    runPlayerClock(OmniMedia.Utils.tohms(t, false).replace(/:/g, '.'));
+		});
+	</script>
+	<!-- END content -->
+	</div>
+	<!-- END wrapperContent -->
+	<script type="text/javascript">
+		drawFooter(); //addMasterAgreement();
+	</script>
+	<!-- END footer -->
+	</div>
+	<!-- END wrappermain -->
+
+</body>
+
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="language" content="English" />
+    <title>Insufficient Work or Funds for Advancement</title>
+    <link href="../css/custom.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript">
+        var pageGuid = "3a9bc6b2-85ce-48d0-98bd-811e134ddeb6"; // uniquely identify this storyboard page
+        var path = "../"; // specify the relative location of this file in the directory structure
+        var bookmark = true; // true will bookmark this page, false will not
+        var pageBack = ""; // 0 will disable button, enter a value to override the automated navigation system
+        var pageNext = ""; // 0 will disable button, enter a value to override the automated navigation system
+        var pageInstructions = "Select Next to continue.";
+		function runPostPgLoad() {
+			setupAutoSync()
+			afterLoadAdjustments()
+		} // runPostPgLoad
+
+		</script>
+    <script type="text/javascript" src="../js/config.js"></script>
+</head>
+
+<body>
+    <div id="wrapperMain">
+        <script type="text/javascript">
+            drawHeader();
+        </script>
+        <!-- END header -->
+        <div id="wrapperContent">
+            <script type="text/javascript">
+                drawUpperPage();
+            </script>
+            <div id="content">
+			<div id="cover"></div>
+                <p>The Department should notify an Employee before the end-of-year discussion if work or funds are insufficient for his or her promotion...</p>
+                <img data-hideat="0.36" class="fullScreenGraphic" style="position:absolute; bottom:100px;"src="../images/M3_L05_14_a.png" id="IMG_1392_03_002_01" alt="" />
+                <img data-showat="0.35" class="fullScreenGraphic" style="position:absolute; bottom:100px;"src="../images/M3_L05_14_b.png" id="IMG_1392_03_002_02" alt="" />
+                <p data-showat="0.35" style="width:200px; position:absolute; bottom:110px; right:30px;">...and provide the Employee and the Local with a written notice that explains the rationale for the decision.</p>
+            </div>
+			<!-- END content -->
+			<div id="player-1" class="fullScreenAudioOMP"></div>
+
+
+			<script type="text/javascript">
+			OmniMedia.config.omniMediaSwf = "../_template/omnimediaplayer.swf";
+			OmniMedia.config.maxBufferingTime = 500;
+			var p = $('#player-1').omnimediaplayer({
+				adOn: false,
+				autoAdvance: true,
+				autoPlay: _sAP == "true",
+				background: '',
+				ccOn: _sCD == "true",
+				chapter: 1,
+				volume: 0.8,
+				suppressErrors: true,
+				playlist: [{
+					location: '../media/03_05_03_002.mp3',
+					captions: '../media/03_05_03_002.vtt'
+				}],
+				plugins: {
+					Captions: {
+						container: null,
+						draggable: false, // experimental, not keyboard accessible
+						showAdTranscript: true
+					},
+					ClickToPlay: {
+						controlFlash: false,
+						showOverlay: false
+					},
+					PlayerControls: {
+						allowFullscreen: false, // experimental, not supported by older browsers
+						controls: {
+							play: true,
+							previous: 'auto',
+							rewind: true,
+							fastforward: true,
+							next: 'auto',
+							volume: true,
+							options: 'auto'
+						},
+						display: {
+							chapter: 'auto',
+							time: 'auto'
+						},
+						small: false // experimental, not mobile friendly
+					},
+					PlayTracker: {
+						completionBar: {
+							display: false,
+							completeColor: '#0000ff',
+							incompleteColor: '#efefef'
+						}
+					},
+					Transcaptions: {
+						disabled: true,
+						search: true,
+						tcOn: false
+					},
+					ShowHide: {
+						duration: 500
+					},
+					TitleDescription: {
+						titleElement: null,
+						descriptionElement: null
+					}
+				}
+			});
+			p.on('omnimediaplayer.mediatimeupdate', function (e, t) {
+				// support legacy syncPlayerClock functions
+				runPlayerClock(OmniMedia.Utils.tohms(t, false).replace(/:/g, '.'));
+			});
+			</script>
+			<!-- END content -->
+		</div>
+		<!-- END wrapperContent -->
+		<script type="text/javascript">
+		drawFooter();
+		</script>
+		<!-- END footer -->
+	</div>
+	<!-- END wrappermain -->
+</body>
+
+</html>

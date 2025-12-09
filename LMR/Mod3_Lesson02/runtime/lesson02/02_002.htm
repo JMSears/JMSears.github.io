@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="language" content="English" />
+    <title>The Rater’s Responsibilities</title>
+    <link href="../css/custom.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript">
+        var pageGuid = "a0254c50-c708-4297-bd82-3115c36d269c"; // uniquely identify this storyboard page
+        var path = "../"; // specify the relative location of this file in the directory structure
+        var bookmark = true; // true will bookmark this page, false will not
+        var pageBack = ""; // 0 will disable button, enter a value to override the automated navigation system
+        var pageNext = ""; // 0 will disable button, enter a value to override the automated navigation system
+        var pageInstructions = "Select Next to continue.";
+        function runPostPgLoad() {
+			setupAutoSync()
+			afterLoadAdjustments()
+        } // runPostPgLoad
+    </script>
+    <script type="text/javascript" src="../js/config.js"></script>
+</head>
+
+<body>
+    <div id="wrapperMain">
+        <script type="text/javascript">
+            drawHeader();
+        </script>
+        <!-- END header -->
+        <div id="wrapperContent">
+            <script type="text/javascript">
+                drawUpperPage();
+            </script>
+            <div id="content">
+			<div id="cover"></div>
+                <p class="hiddenText">From Sections 4 and 5</p>
+                <p style="margin-top:110px;">The Rater implements the performance appraisal system throughout the appraisal period.</p>
+                <img data-hideat="0.20" class="fullScreenGraphic" style="position:absolute; bottom:90px;" src="../images/M3_L02_11.png" id="IMG_1409_02_002_01" alt="" />
+                <img data-showat="0.19" data-hideat="0.25" class="fullScreenGraphic" style="position:absolute; bottom:90px;" src="../images/M3_L02_11_a.png" id="IMG_1409_02_002_02" alt="" />
+                <img data-showat="0.24" data-hideat="0.30" class="fullScreenGraphic" style="position:absolute; bottom:90px;" src="../images/M3_L02_11_b.png" id="IMG_1409_02_002_03" alt="" />
+                <img data-showat="0.29" data-hideat="0.38" class="fullScreenGraphic" style="position:absolute; bottom:90px;" src="../images/M3_L02_11_c.png" id="IMG_1409_02_002_04" alt="" />
+				<img data-showat="0.37" class="fullScreenGraphic" style="position:absolute; bottom:90px;" src="../images/M3_L02_11_d.png" id="IMG_1409_02_002_05" alt="" />
+            </div>
+	<div id="player-1" class="fullScreenAudioOMP"></div>
+
+
+	<script type="text/javascript">
+		OmniMedia.config.maxBufferingTime = 500;
+		var p = $('#player-1').omnimediaplayer({
+			adOn: false,
+			autoAdvance: true,
+			autoPlay: _sAP == "true",
+			background: '',
+			ccOn: _sCD == "true",
+			chapter: 1,
+			volume: 0.8,
+			suppressErrors: true,
+			playlist: [{
+				location: '../media/03_02_02_002.mp3',
+				captions: '../media/03_02_02_002.vtt'
+			}],
+			plugins: {
+				Captions: {
+					container: null,
+					draggable: false, // experimental, not keyboard accessible
+					showAdTranscript: true
+				},
+				ClickToPlay: {
+					controlFlash: false,
+					showOverlay: false
+				},
+				PlayerControls: {
+					allowFullscreen: false, // experimental, not supported by older browsers
+					controls: {
+						play: true,
+						previous: 'auto',
+						rewind: true,
+						fastforward: true,
+						next: 'auto',
+						volume: true,
+						options: 'auto'
+					},
+					display: {
+						chapter: 'auto',
+						time: 'auto'
+					},
+					small: false // experimental, not mobile friendly
+				},
+				PlayTracker: {
+					completionBar: {
+						display: false,
+						completeColor: '#0000ff',
+						incompleteColor: '#efefef'
+					}
+				},
+				Transcaptions: {
+					disabled: true,
+					search: true,
+					tcOn: false
+				},
+				ShowHide: {
+					duration: 500
+				},
+				TitleDescription: {
+					titleElement: null,
+					descriptionElement: null
+				}
+			}
+		});
+		p.on('omnimediaplayer.mediatimeupdate', function (e, t) {
+		// support legacy syncPlayerClock functions
+		    runPlayerClock(OmniMedia.Utils.tohms(t, false).replace(/:/g, '.'));
+		});
+	</script>
+	<!-- END content -->
+	</div>
+	<!-- END wrapperContent -->
+	<script type="text/javascript">
+		drawFooter(); //addMasterAgreement();
+	</script>
+	<!-- END footer -->
+	</div>
+	<!-- END wrappermain -->
+
+</body>
+
+</html>

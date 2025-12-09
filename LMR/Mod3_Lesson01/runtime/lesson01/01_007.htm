@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="language" content="English" />
+<title>How Confident Are You?</title>
+<link href="../css/custom.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+var pageGuid = "8f17f5e2-b790-4097-a354-5f129828f71a";       // uniquely identify this storyboard page
+var path = "../";       // specify the relative location of this file in the directory structure
+var bookmark = true;       // true will bookmark this page, false will not
+var pageBack = ""; // 0 will disable button, enter a value to override the automated navigation system
+var pageNext = "";       // 0 will disable button, enter a value to override the automated navigation system
+var pageInstructions="Select your confidence level and then Submit to continue.";
+		function runPostPgLoad() {
+			afterLoadAdjustments();
+			setLessonComplete(); /* Set the lesson to complete */
+		} // runPostPgLoad
+	</script>
+	<script type="text/javascript" src="../js/config.js"></script>
+	<script type="text/javascript" src="../js/confidence_script.js"></script>
+	<link href="../css/confidence.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="../js/jquery-ui-1.12.1/jquery-ui.min.js"></script>
+	<link rel="stylesheet" id="template-custom-css" href="../js/jquery-ui-1.12.1/jquery-ui.min.css">
+	<script>
+	</script>
+</head>
+
+<body>
+	<div id="wrapperMain">
+		<script type="text/javascript">
+			drawHeader();
+		</script>
+		<!-- END header -->
+		<div id="wrapperContent">
+			<script type="text/javascript">
+				drawUpperPage();
+			</script>
+			<div id="content">
+			<div id="cover"></div>
+				<div id="page">
+					<div id="confidenceQuestion">
+						<fieldset>
+							<legend>How well would you be able to remember this article on the job?
+								<BR>Select how confident you are in your knowledge and then select Submit.</legend>
+							<div id="compare">
+								<img src="../images/likert.png" width="600" />
+								<div id="optionBlock">
+									<div class="optionHolder"><input type="radio" id="confident1" name="confidence" value=1><label for="confident1"><div>Extremely Confident</div></label></div>
+									<div class="optionHolder"><input type="radio" id="confident2" name="confidence" value=2><label for="confident2" >Definitely Confident</label></div>
+									<div class="optionHolder"><input type="radio" id="confident3" name="confidence" value=3><label for="confident3">Sort of Confident</label></div>
+									<div class="optionHolder"><input type="radio" id="confident4" name="confidence" value=4><label for="confident4">Maybe Confident</label></div>
+									<div class="optionHolder"><input type="radio" id="confident5" name="confidence" value=5><label for="confident5"><div>Not at all Confident</div></label></div>
+								</div>
+							</div>
+						</fieldset>
+						<p id="submitHolder">
+							<button id="submitButton" title="Submit" onclick="handleSubmit();">Submit</button>
+						</p>
+					</div>
+					<div id="feedbackSide">
+					</div>
+				</div>
+
+				<div id="dialog-message" title="">
+					<p style="margin-left:25px;">
+						<span class="ui-icon ui-icon-circle-check"></span>
+						<img></img>
+						<span class="confidenceFeedback"></span>
+					</p>
+				</div>
+			</div>
+			<div id="player-1" class="fullScreenAudioOMP"></div>
+
+
+			<script type="text/javascript">
+				OmniMedia.config.maxBufferingTime = 500;
+				var p = $('#player-1').omnimediaplayer({
+					adOn: false,
+					autoAdvance: true,
+					autoPlay: _sAP == "true",
+					background: '',
+					ccOn: _sCD == "true",
+					chapter: 1,
+					volume: 0.8,
+					suppressErrors: true,
+					playlist: [{
+						location: '../media/03_01_01_006.mp3',
+						captions: '../media/03_01_01_006.vtt'
+					}],
+					plugins: {
+						Captions: {
+							container: null,
+							draggable: false, // experimental, not keyboard accessible
+							showAdTranscript: true
+						},
+						ClickToPlay: {
+							controlFlash: false,
+							showOverlay: false
+						},
+						PlayerControls: {
+							allowFullscreen: false, // experimental, not supported by older browsers
+							controls: {
+								play: true,
+								previous: 'auto',
+								rewind: true,
+								fastforward: true,
+								next: 'auto',
+								volume: true,
+								options: 'auto'
+							},
+							display: {
+								chapter: 'auto',
+								time: 'auto'
+							},
+							small: false // experimental, not mobile friendly
+						},
+						PlayTracker: {
+							completionBar: {
+								display: false,
+								completeColor: '#0000ff',
+								incompleteColor: '#efefef'
+							}
+						},
+						Transcaptions: {
+							disabled: true,
+							search: true,
+							tcOn: false
+						},
+						ShowHide: {
+							duration: 500
+						},
+						TitleDescription: {
+							titleElement: null,
+							descriptionElement: null
+						}
+					}
+				});
+				//p.on('omnimediaplayer.mediatimeupdate', function (e, t) {
+				// support legacy syncPlayerClock functions
+				//    runPlayerClock(OmniMedia.Utils.tohms(t, false).replace(/:/g, '.'));
+				//});
+			</script>
+			<!-- END content -->
+		</div>
+		<!-- END wrapperContent -->
+		<script type="text/javascript">
+			drawFooter();
+		</script>
+		<!-- END footer -->
+	</div>
+	<!-- END wrappermain -->
+</body>
+
+</html>
