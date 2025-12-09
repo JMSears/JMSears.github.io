@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="jquery-1.12.4.min.js"></script>
+
+<style>
+iframe:focus{
+	border:solid 2px green;
+}
+/*
+iframe {
+	border:solid 2px red;
+}*/
+
+</style>
+</head>
+<body style="overflow:hidden;width:100%">
+
+<div style="width:20%;height:98vh;display:inline-block;postion:relative;overflow:hidden;" tabindex="-1">
+<iframe src="tree.html" name="toc" id="toc" frameborder="0" style="height:97%;width:20%;position:absolute;" onfocus="myFunction('toc');" onblur="myFunction2('toc');" name="toc" title="Table of Contents"></iframe>
+</div>
+
+<div style="width:79%; height:99vh;display:inline-block;position:relative;overflow:hidden;" tabindex="-1">
+<iframe src="frame.html" frameborder="0" style="height:99%;width:100%;position:absolute;" name="document_frame" title="Master Agreement"></iframe>
+</div>
+
+<script>
+//document.getElementById("toc").addEventListener("focus", myFunction, "toc");
+
+function myFunction(id) {
+//console.log("focus fjkfldjalkfdjalkj    " + id)
+$("#"+id).css("border","solid 1px red");
+    //document.getElementById("fname").style.backgroundColor = "red";
+}
+function myFunction2(id) {
+//console.log("focus fjkfldjalkfdjalkj    " + id)
+$("#"+id).css("border","solid 0px");
+    //document.getElementById("fname").style.backgroundColor = "red";
+}
+
+</script>
+	
+</body>
+</html>

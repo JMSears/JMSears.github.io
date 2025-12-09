@@ -1,0 +1,50 @@
+<html>
+<head>
+  <script src="jquery-1.12.4.min.js"></script>
+    <script> 
+	function backToTree() {
+		window.parent.document.getElementById('toc').contentWindow.setTreeInFocus()
+	}
+	
+    $(function(){
+		for (x=1;x<=72; x++) {	
+			$("#doc").append("<div id='article-"+x+"' tabindex='0'></div>")
+			$("#article-"+x).load("master_agreement/article"+x+".html");
+			//$("#doc").append("<a class='hideFromScreen' href='javascript:backToTree();'>Return</a>");
+		}
+		setTimeout(doMe, 1000)
+		
+    });
+	function doMe() {
+		for (x=1;x<=72; x++) {	
+			$("#article-"+x).append("<div><a class='hideFromScreen' style='margin:10px 0;' href='javascript:backToTree();'>Return</a></div>");
+		}
+	}
+	function moveMe(link) {
+		//alert(link)
+		$("#"+link).focus()
+	}
+    </script> 
+	
+	<style>
+	.hideFromScreen {
+		display:inline-block;
+		left:-500px;
+		position:relative;
+	}
+	.hideFromScreen:focus{
+		left:0;
+	}
+		
+
+	</style>
+
+</head>
+<body>
+
+
+<div id="doc"><div>
+
+
+</body>
+</html>
