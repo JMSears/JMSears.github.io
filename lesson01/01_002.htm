@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="language" content="English" />
+<title>The 2017 Master Agreement</title>
+<link href="../css/custom.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+var pageGuid = "3385c187-e313-4e96-b405-b3bb56bb5dbd";       // uniquely identify this storyboard page
+var path = "../";       // specify the relative location of this file in the directory structure
+var bookmark = true;       // true will bookmark this page, false will not
+var pageBack = ""; // 0 will disable button, enter a value to override the automated navigation system
+var pageNext = "";       // 0 will disable button, enter a value to override the automated navigation system
+	var pageInstructions = "Select Next to continue.";
+
+	function runPostPgLoad() {
+		setupAutoSync()
+		afterLoadAdjustments()
+		setLessonComplete(); /* Set the lesson to complete */
+	} // runPostPgLoad
+	</script>
+	<script type="text/javascript" src="../js/config.js"></script>
+</head>
+
+<body>
+	<div id="wrapperMain">
+		<script type="text/javascript">
+		drawHeader();
+		</script>
+		<!-- END header -->
+		<div id="wrapperContent">
+			<script type="text/javascript">
+			drawUpperPage();
+			</script>
+			<div id="content">
+			<div id="cover"></div>
+				<p data-showat="0.16">The Department and the Union are "The Parties."</p>
+				<div style="position:absolute; top:60px;">
+				<img data-hideat="0.07" class="fullScreenGraphic" style="position:absolute;" src="../images/M1_L00_03_a.png" id="IMG_1284_01_002_01" alt="" />
+				<img data-showat="0.06" data-hideat="0.10" class="fullScreenGraphic" style="position:absolute;" src="../images/M1_L00_03_b.png" id="IMG_1284_01_002_01" alt="" />
+				<img data-showat="0.09" data-hideat="0.24" class="fullScreenGraphic" style="position:absolute;" src="../images/M1_L00_03_c.png" id="IMG_1284_01_002_01" alt="" />
+				<img data-showat="0.23" data-hideat="0.33" class="fullScreenGraphic" style="position:absolute;" src="../images/M1_L00_03_d.png" id="IMG_1284_01_002_01" alt="" />
+				<img data-showat="0.31" class="fullScreenGraphic" style="position:absolute;" src="../images/M1_L00_03_e.png" id="IMG_1284_01_002_01" alt="" />
+				</div>
+				</div>
+			<!-- END content -->
+			<div id="player-1" class="fullScreenAudioOMP"></div>
+
+
+			<script type="text/javascript">
+			OmniMedia.config.omniMediaSwf = "../_template/omnimediaplayer.swf";
+			OmniMedia.config.maxBufferingTime = 500;
+			var p = $('#player-1').omnimediaplayer({
+				adOn: false,
+				autoAdvance: true,
+				autoPlay: _sAP == "true",
+				background: '',
+				ccOn: _sCD == "true",
+				chapter: 1,
+				volume: 0.8,
+				suppressErrors: true,
+				playlist: [{
+					location: '../media/01_00_01_002.mp3',
+					captions: '../media/01_00_01_002.vtt'
+				}],
+				plugins: {
+					Captions: {
+						container: null,
+						draggable: false, // experimental, not keyboard accessible
+						showAdTranscript: true
+					},
+					ClickToPlay: {
+						controlFlash: false,
+						showOverlay: false
+					},
+					PlayerControls: {
+						allowFullscreen: false, // experimental, not supported by older browsers
+						controls: {
+							play: true,
+							previous: 'auto',
+							rewind: true,
+							fastforward: true,
+							next: 'auto',
+							volume: true,
+							options: 'auto'
+						},
+						display: {
+							chapter: 'auto',
+							time: 'auto'
+						},
+						small: false // experimental, not mobile friendly
+					},
+					PlayTracker: {
+						completionBar: {
+							display: false,
+							completeColor: '#0000ff',
+							incompleteColor: '#efefef'
+						}
+					},
+					Transcaptions: {
+						disabled: true,
+						search: true,
+						tcOn: false
+					},
+					ShowHide: {
+						duration: 500
+					},
+					TitleDescription: {
+						titleElement: null,
+						descriptionElement: null
+					}
+				}
+			});
+			p.on('omnimediaplayer.mediatimeupdate', function (e, t) {
+				// support legacy syncPlayerClock functions
+				runPlayerClock(OmniMedia.Utils.tohms(t, false).replace(/:/g, '.'));
+			});
+			</script>
+			<!-- END content -->
+		</div>
+		<!-- END wrapperContent -->
+		<script type="text/javascript">
+		drawFooter();
+		</script>
+		<!-- END footer -->
+	</div>
+	<!-- END wrappermain -->
+</body>
+
+</html>

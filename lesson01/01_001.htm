@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="language" content="English" />
+<title>Counseling, Performance, and Grievances</title>
+<link href="../css/custom.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+var pageGuid = "3b560e2c-1aea-4b4c-8649-91cde156e7f8";       // uniquely identify this storyboard page
+var path = "../";       // specify the relative location of this file in the directory structure
+var bookmark = true;       // true will bookmark this page, false will not
+var pageBack = ""; // 0 will disable button, enter a value to override the automated navigation system
+var pageNext = "";       // 0 will disable button, enter a value to override the automated navigation system
+var pageInstructions = "Select Next to continue.";
+	function runPostPgLoad() {
+		setupAutoSync()
+		afterLoadAdjustments()
+	} // runPostPgLoad
+	</script>
+	<script type="text/javascript" src="../js/config.js"></script>
+	<style>
+		#content li {
+			margin-top:6px;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="wrapperMain">
+		<script type="text/javascript">
+		drawHeader();
+		</script>
+		<!-- END header -->
+		<div id="wrapperContent">
+			<script type="text/javascript">
+			drawUpperPage();
+			</script>
+			<div id="content">
+			<div id="cover"></div>
+				<img style="margin-top:-20px;" src="../images/M3_L00_03.png" id="IMG_1284_01_001_01" alt="" />
+				<div style="position:relative; margin-left:120px; margin-top:-60px">
+				<p data-showat="0.47">You will be able to:</p>
+				<ul>
+					<li data-showat="0.47">effectively interpret these articles</li>
+					<li data-showat="0.47">avoid creating your own intent</li>
+					<li data-showat="0.56">have confidence in the field</li>
+				</ul>
+				</div>
+				<div data-showat="0.19" style="position:absolute; top:20px; right:40px;">
+				<ol>
+<li>Article 8: Counseling</li>
+<li>Article 22: Performance Appraisal</li>
+<li>Article 20: Title 5 Classification</li>
+<li>Article 21: Competencies</li>
+<li>Article 26: Merit Promotion</li>
+<li>Article 25: Details, Reassignments and Temporary Promotions</li>
+<li>Article 29: Temporary, Probationary, Part-Time Employees and Job Sharing</li>
+<li>Article 27: Upward Mobility</li>
+<li>Article 28: Within-Grade Increases and Periodic Step Increases</li>
+<li>Article 23: Training and Career Development</li>
+<li>Article 24: Employee Awards and Recognition</li>
+<li>Article 37: Discipline and Adverse Actions</li>
+<li>Article 35: Patient Abuse</li>
+<li>Article 36: Investigations</li>
+<li>Article 49: Surveillance</li>
+<li>Article 48: Monitoring of Employees</li>
+<li>Article 38: Official Records</li>
+<li>Article 40: Grievance Procedure</li>
+<li>Article 41: Arbitration</li>
+<li>Article 39: Alternative Dispute Resolution</li>
+
+
+				</ol>
+				</div>
+			</div>
+			<!-- END content -->
+			<div id="player-1" class="fullScreenAudioOMP"></div>
+
+			
+			<script type="text/javascript">
+			OmniMedia.config.omniMediaSwf = "../_template/omnimediaplayer.swf";
+			OmniMedia.config.maxBufferingTime = 500;
+			var p = $('#player-1').omnimediaplayer({
+				adOn: false,
+				autoAdvance: true,
+				autoPlay: _sAP == "true",
+				background: '',
+				ccOn: _sCD == "true",
+				chapter: 1,
+				volume: 0.8,
+				suppressErrors: true,
+				playlist: [{
+					location: '../media/03_00_01_001.mp3',
+					captions: '../media/03_00_01_001.vtt'
+				}],
+				plugins: {
+					Captions: {
+						container: null,
+						draggable: false, // experimental, not keyboard accessible
+						showAdTranscript: true
+					},
+					ClickToPlay: {
+						controlFlash: false,
+						showOverlay: false
+					},
+					PlayerControls: {
+						allowFullscreen: false, // experimental, not supported by older browsers
+						controls: {
+							play: true,
+							previous: 'auto',
+							rewind: true,
+							fastforward: true,
+							next: 'auto',
+							volume: true,
+							options: 'auto'
+						},
+						display: {
+							chapter: 'auto',
+							time: 'auto'
+						},
+						small: false // experimental, not mobile friendly
+					},
+					PlayTracker: {
+						completionBar: {
+							display: false,
+							completeColor: '#0000ff',
+							incompleteColor: '#efefef'
+						}
+					},
+					Transcaptions: {
+						disabled: true,
+						search: true,
+						tcOn: false
+					},
+					ShowHide: {
+						duration: 500
+					},
+					TitleDescription: {
+						titleElement: null,
+						descriptionElement: null
+					}
+				}
+			});
+			p.on('omnimediaplayer.mediatimeupdate', function (e, t) {
+				// support legacy syncPlayerClock functions
+				runPlayerClock(OmniMedia.Utils.tohms(t, false).replace(/:/g, '.'));
+			});
+			</script>
+			<!-- END content -->
+		</div>
+		<!-- END wrapperContent -->
+		<script type="text/javascript">
+		drawFooter();
+		</script>
+		<!-- END footer -->
+	</div>
+	<!-- END wrappermain -->
+</body>
+
+</html>
+

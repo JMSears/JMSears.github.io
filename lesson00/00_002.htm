@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="language" content="English" />
+<title>Default Settings for Page Content</title>
+<link href="../css/custom.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+var pageGuid = "2f395f47-30a7-470f-a08d-19b3b5bf868c";       // uniquely identify this storyboard page
+var path = "../";       // specify the relative location of this file in the directory structure
+var bookmark = true;       // true will bookmark this page, false will not
+var pageBack = ""; // 0 will disable button, enter a value to override the automated navigation system
+var pageNext = "";       // 0 will disable button, enter a value to override the automated navigation system
+	var pageInstructions = "Select Next to continue.";
+
+	function runPostPgLoad() {
+		afterLoadAdjustments()
+		settingsPageAdjustments()
+		setLessonComplete(); /* Set the lesson to complete */
+	} // runPostPgLoad
+	</script>
+	<script type="text/javascript" src="../js/config.js"></script>
+
+	<style>
+	.tableClass {
+		margin: 0 auto;
+	}
+
+	.tableClass,
+	.tableClass th,
+	.tableClass td {
+		border: solid 1px black;
+		border-collapse: collapse;
+		padding: 2px;
+	}
+
+	.tableClass td {
+		text-align: center;
+	}
+
+	#headerRow,
+	th {
+		background-color: #DAE3F3;
+		text-align: center;
+	}
+
+	.tableClass th,
+	.tableClass td {
+		width: 150px;
+	}
+
+	h2 {
+		font: 1.0em Arial, sans-serif;
+		font-weight: bold;
+		color: black;
+	}
+	legend {
+		line-height:normal;
+		/*margin-top:40px;*/
+	}
+	</style>
+</head>
+
+<body>
+	<script>
+	</script>
+	<div id="wrapperMain">
+		<script type="text/javascript">
+		drawHeader();
+		</script>
+		<!-- END header -->
+		<div id="wrapperContent">
+			<script type="text/javascript">
+			drawUpperPage();
+			</script>
+			<div id="content" >
+		<div id="cover"></div>
+				<div style="margin-bottom:30px; overflow:auto;">
+					<h2 style="border-bottom:solid 1px #427aa9;">Auto Play Setting</h2>
+					<div style="width:375px; float:left; margin-top:0px;">
+						<p style="margin-bottom:0;">This eLearning is programmed to automatically play content when you enter a page. If you would prefer to manually play each page, select the “No” option below:</p>
+						<script type="text/javascript">
+						drawAutoPlayOption();
+						</script>
+					</div>
+				<div style="float:right; width:500px;">
+					<p style="clear:both;">In addition to the buttons on the player, keyboard shortcuts can be used to control these settings:</p>
+					<table class="tableClass">
+						<tbody>
+							<tr id="headerRow">
+								<th id="os" scope="col">Operating System</th>
+								<th id="browser" scope="col">Browser</th>
+								<th id="pauseplay" scope="col">Pause or Play Content</th>
+							</tr>
+							<tr>
+								<th id="windows" rowspan="2" headers="os" scope="row">Windows</th>
+								<td headers="os windows browser">Internet Explorer, Chrome, or Safari</td>
+								<td headers="os windows playpause">[Alt] + j</td>
+							</tr>
+							<tr>
+								<td headers="os windows browser" >Firefox</td>
+								<td headers="os windows pauseplay">[Alt] + [Shift] + j</td>
+							</tr>
+
+							<tr>
+								<th id="mac" headers="os" scope="row">Mac</th>
+								<td headers="os mac browser">Chrome, Firefox, or Safari</td>
+								<td headers="os mac pauseplay">[Control] + [Alt] + j</td>
+							</tr>
+
+						</tbody>
+					</table>
+				</div>
+				</div>
+				<h2 style="border-bottom:solid 1px #427aa9; margin-top:0px;">Audio Setting</h2>
+				<div style="width:375px; float:left; margin-top:0px;">
+					<p style="margin-bottom:0;">Essential instructional content is provided by narration, so the player sound is set to "Unmute." If you set the player's audio to "Mute," closed captions will display a transcription of the narration. If you prefer to always display captions, select the "Yes" option below:</p>
+
+					<script type="text/javascript">
+					drawCCDisplayOption();
+					</script>
+				</div>
+				<div style="float:right; width:500px;">
+						<p style="clear:both;">In addition to the buttons on the player, keyboard shortcuts can be used to control these settings:</p>
+						<table class="tableClass" style="margin-top:33px;">
+							<tbody>
+								<tr id="headerRow">
+									<th id="os" scope="col">Operating System</th>
+									<th id="browser" scope="col">Browser</th>
+									<th id="mute" scope="col">Mute or Unmute Audio</th>
+								</tr>
+								<tr>
+									<th id="windows" headers="os" rowspan="2" scope="row">Windows</th>
+									<td headers="os windows browser">Internet Explorer, Chrome, or Safari</td>
+									<td headers="os windows mute">[Alt] + m</td>
+								</tr>
+								<tr>
+									<td headers="os windows browser" >Firefox</td>
+									<td headers="os windows mute" >[Alt] + [Shift] + m</td>
+								</tr>
+								<tr>
+									<th id="mac" headers="os" scope="row">Mac</th>
+									<td headers="os mac browser">Chrome, Firefox, or Safari</td>
+									<td headers="os mac mute">[Control] + [Alt] + m</td>
+								</tr>
+
+							</tbody>
+						</table>
+					</div>
+			<div style="clear:both; padding-top:3px;">
+			<p style="border-top:solid 1px #427aa9; text-align:center;padding-top:2px;">At any time during the training, you can change these options by selecting “Settings” at the top of the user interface.</p>
+
+			</div>
+
+
+			</div>
+			
+			<!-- END content -->
+		</div>
+		<!-- END wrapperContent -->
+		<script type="text/javascript">
+		drawFooter();
+		</script>
+		<!-- END footer -->
+	</div>
+	<!-- END wrappermain -->
+</body>
+
+</html>
